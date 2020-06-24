@@ -116,10 +116,12 @@
   AnswerTests: omnitest(correctVal='No')
   Hint: Is the p-value small?  Is 0 in the confidence interval?
   
+  
 - Class: mult_question
-  Output: Good work! You've completed Pre-Lab 7.3. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
-  AnswerChoices: Yes;No
+  Output: Good work! You've completed Pre-Lab 2.2. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
+  AnswerChoices: Finished !
   CorrectAnswer: NULL
   AnswerTests: submit_log()
-  Hint: hint  
+  Hint: hint   
+   
 

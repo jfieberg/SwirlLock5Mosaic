@@ -7,7 +7,7 @@
   Version: 2.4.2
 
 - Class: figure
-  Output: In this section, we'll try out some of the different ways that we can visualize (create informative plots of) categorical variables using the same data set as last time (StudentSurvey).
+  Output: In this section, we'll try out some of the different ways that we can visualize (create informative plots of) categorical variables using the same data set as last time (StudentSurvey). There are many ways you can create plots in R.  In Biometry, we are going to use the ggformula package to create our plots. 
   Figure: student.R
   FigureType: new
 
@@ -21,34 +21,53 @@
   Output: We'll consider the simple case where we only have a single categorical variable to look at. Let's say that we want to see how many of the students who took the survey are smokers (ie, 'Yes' in the Smoke variable column). 
 
 - Class: cmd_question
-  Output: The mosaic package has a function, bargraph(), that allows us to use the familiar format we learned in Lab 1 - goal(y~x, data=mydata). Since we're just looking at a single variable, Smoke, we can omit a response variable (y in our 'familiar format'). Try entering bargraph(~Smoke, data=StudentSurvey) into the console. 
-  CorrectAnswer: bargraph(~Smoke, data=StudentSurvey)
-  AnswerTests: any_of_exprs('bargraph(~Smoke, data=StudentSurvey)', 'bargraph(Smoke, data=StudentSurvey)')
-  Hint: It probably looks weird, but we don't need anything before the ~ in our function. Just type in bargraph(~Smoke, data=StudentSurvey) to the console. 
+  Output: The mosaic package has a function, gf_bar(), that allows us to use the familiar format we learned in Lab 1 - goal(y~x, data=mydata). Since we're just looking at a single variable, Smoke, we can omit a response variable (y in our 'familiar format'). Try entering gf_bar(~Smoke, data=StudentSurvey) into the console. 
+  CorrectAnswer: gf_bar(~Smoke, data=StudentSurvey)
+  AnswerTests: any_of_exprs('gf_bar(~Smoke, data=StudentSurvey)')
+  Hint: Remember to include a ~ before Smoke. It probably looks weird, but we don't need anything before the ~ in our function. Just type in gf_bar(~Smoke, data=StudentSurvey) to the console. 
 
 - Class: cmd_question
-  Output: Note that, even though the function works without a ~ in front of Smoke, you should get in the habit of using ~ in this format. Now, using that same function setup, try to compare how many students there are for each grade level - use the Year variable!
-  CorrectAnswer: bargraph(~Year, data=StudentSurvey)
-  AnswerTests: any_of_exprs('bargraph(~Year, data=StudentSurvey)','bargraph(Year, data=StudentSurvey)')
-  Hint: Not much has to change from our last function - bargraph(~Smoke, data=StudentSurvey). We still want a bargraph, and we still want to use the StudentSurvey data set, except this time, we want to look at the variable Year instead of Smoke. 
-
-- Class: text
-  Output: Let's try one last plot. Now, we want to look at the variable Award, which represents which of three awards the student would like to win in their lifetime - an Academy Award, a Nobel Prize, or an Olympic Medal. 
+  Output: gf_bar() provides a count of the number of cases falling into each category. Alternatively, we could use gf_percents() to create a similar plot but with percentages of cases falling into each category.  Try entering gf_percents(~Smoke, data=StudentSurvey) into the console. 
+  CorrectAnswer: gf_percents(~Smoke, data=StudentSurvey)
+  AnswerTests: any_of_exprs('gf_percents(~Smoke, data=StudentSurvey)')
+  Hint: Remember to include a ~ before Smoke. It probably looks weird, but we don't need anything before the ~ in our function. Just type in gf_percents(~Smoke, data=StudentSurvey) to the console. 
 
 - Class: cmd_question
-  Output: Now instead of just looking at counts, like we did in the last two plots, let's look at how this breaks down between males and females. To compare between groups, we can add a single argument to our function - groups. When you set groups equal to a categorical variable in the data frame, the graph will be broken down by that variable. Let's try it - bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE). 
-  CorrectAnswer: bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)
-  AnswerTests: any_of_exprs('bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)','bargraph(Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)')
-  Hint: It's a big long chunk of code, but you can enter it exactly as follows - bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE). groups tells R that we want to break down the data by Gender, and auto.key tells R that we want to generate a graph legend automatically. 
+  Output:  Now, let's use gf_bar() to compare how many students there are for each grade level - use the Year variable!
+  CorrectAnswer: gf_bar(~Year, data=StudentSurvey)
+  AnswerTests: any_of_exprs('gf_bar(~Year, data=StudentSurvey)','gf_percents(~Year, data=StudentSurvey)')
+  Hint: Not much has to change from our last function - gf_bar(~Smoke, data=StudentSurvey). We still want a bargraph, and we still want to use the StudentSurvey data set, except this time, we want to look at the variable Year instead of Smoke. 
 
 - Class: text
-  Output: Great job. You may have noticed that I lied about using just one more argument - we actually used groups AND an argument called auto.key. auto.key tells R that we want it to generate a legend automatically. That way, we can actually tell which color is which Gender. 
+  Output: Let's consider now bargraphs with two categorical variables. Consider the variable Award, which represents which of three awards the student would like to win in their lifetime - an Academy Award, a Nobel Prize, or an Olympic Medal. 
 
+- Class: cmd_question
+  Output: Lets compare answers between Males and Females. We can greate a plot with a separate panel for Males and Females using a "|" - gf_bar(~Award|Gender, data=StudentSurvey). Try it!
+  CorrectAnswer: gf_bar(~Award|Gender, data=StudentSurvey)
+  AnswerTests: any_of_exprs('gf_bar(~Award|Gender, data=StudentSurvey)')
+  Hint: Enter gf_bar(~Award|Gender, data=StudentSurvey). This tells R that we want to break down the data by Gender. 
 
+- Class: text
+  Output: Great job. We can also use the fill argument to gf_bar() to create stacked and side-by-side bargraphs.
+
+- Class: cmd_question
+  Output: Try the following gf_bar(~Award, fill=~Gender, data=StudentSurvey). This will create a stacked histogram.
+  CorrectAnswer: gf_bar(~Award, fill=~Gender, data=StudentSurvey)
+  AnswerTests: any_of_exprs('gf_bar(~Award, fill=~Gender, data=StudentSurvey)')
+  Hint: Enter gf_bar(~Award, fill=~Gender, data=StudentSurvey). This tells R that we want to break down the data by Gender. 
+ 
+- Class: cmd_question
+  Output: To create side-by-side histograms, we can add an extra argument, position=position_dodge(). This tells R to place the counts next to each other rather than on top of each other. Try it - enter  gf_bar(~Award, fill=~Gender, data=StudentSurvey, position=position_dodge()). 
+  CorrectAnswer: gf_bar(~Award, fill=~Gender, data=StudentSurvey, position=position_dodge())
+  AnswerTests: any_of_exprs('gf_bar(~Award, fill=~Gender, data=StudentSurvey, position=position_dodge())')
+  Hint: Enter gf_bar(~Award, fill=~Gender, data=StudentSurvey, position=position_dodge()). This tells R that we want to break down the data by Gender. 
+
+  
 - Class: mult_question
-  Output: Good work! You've completed Pre-Lab 2.2. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
-  AnswerChoices: Yes;No
+  Output: Good work! You've completed Pre-Lab 2.2. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
+  AnswerChoices: Finished !
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint   
+   
   

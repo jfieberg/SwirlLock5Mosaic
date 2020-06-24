@@ -30,10 +30,12 @@
 - Class: text
   Output: Great work! Using filter, we can chose specific rows of data from a dataset - you'll use this for analysis purposes in lab.
 
+  
 - Class: mult_question
-  Output: Good work! You've completed Pre-Lab 1.4. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
-  AnswerChoices: Yes;No
+  Output: Good work! You've completed Pre-Lab 1.4. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
+  AnswerChoices: Finished !
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint   
+   
   

@@ -9,10 +9,10 @@
   names(vc)<-x500
   if(!is.na(vc[x5])){return(vc[x5])}
   if (is.na(vc[x5])){return(paste("Is your x500 ", x5, "? If that is not correct, you need to re-do the prelab section using your correct x500 to get your 8-digit code. If that is correct, send John (jfieberg@umn.edu) and Nick (gonde012@umn.edu) an email with a screen shot of your console."))}
-  }
+}
 .getState <- function(){environment(sys.function(1))$e}
 if(sum(.getState()$log$skipped)<2  && !identical(environment(), globalenv())){
-      .lt=.getState()$log$user
-      .ls=as.numeric(strsplit(x=.getState()$log$lesson, split="")[[1]][3])
-      .lp=as.numeric(strsplit(x=.getState()$log$lesson, split="")[[1]][1])
-      print(.ver(.lt, .lp, .ls))} else {print("No skipping questions!")}
+  .lt=.getState()$log$user
+  .ls=as.numeric(strsplit(x=.getState()$log$lesson, split="")[[1]][3])
+  .lp=as.numeric(strsplit(x=.getState()$log$lesson, split="")[[1]][1])
+  print(.ver(.lt, .lp, .ls))} else {print("No skipping questions!")}

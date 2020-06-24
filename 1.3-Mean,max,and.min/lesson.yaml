@@ -44,10 +44,12 @@
 - Class: text
   Output: Great work - We now know that over the course of 2002 and 2011, the United States averaged about 300 billion dollars in retail sales monthly, but some months were as low as 214 billion and some were as high as 394 billion!
 
+  
 - Class: mult_question
-  Output: Good work! You've completed Pre-Lab 1.3. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
-  AnswerChoices: Yes;No
+  Output: Good work! You've completed Pre-Lab 1.3. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
+  AnswerChoices: Finished !
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint   
-  
+   
+

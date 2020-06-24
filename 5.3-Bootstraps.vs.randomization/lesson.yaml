@@ -78,11 +78,12 @@
   
 - Class: text
   Output: Yes, a key difference between bootstrap distributions and randomization distributions is that the latter explores a range of values for our statistic in the case *where the null hypothesis is true**.
-
+  
 - Class: mult_question
-  Output: Good work! You've completed Pre-Lab 5.3. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
-  AnswerChoices: Yes;No
+  Output: Good work! You've completed Pre-Lab 5.3. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
+  AnswerChoices: Finished !
   CorrectAnswer: NULL
   AnswerTests: submit_log()
-  Hint: hint 
+  Hint: hint   
+   
 

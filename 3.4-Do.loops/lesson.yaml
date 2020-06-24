@@ -62,10 +62,12 @@
 - Class: text
   Output: Right - using sample, we just reordered all of the numbers so the mean was the same each time. You may not realize it, but you've just acquired a skill that will let you quantify uncertainty in your estimates of many population parameters (e.g., population means, proportions, correlation coefficients, etc). 
 
+  
 - Class: mult_question
-  Output: Good work! You've completed Pre-Lab 3.4. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
-  AnswerChoices: Yes;No
+  Output: Good work! You've completed Pre-Lab 3.4. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
+  AnswerChoices: Finished !
   CorrectAnswer: NULL
   AnswerTests: submit_log()
-  Hint: hint 
+  Hint: hint   
+   
 
