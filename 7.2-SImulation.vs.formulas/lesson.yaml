@@ -1,0 +1,109 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 7.2 - Simulations vs Formulae
+  Author: Nick Gondek and John Fieberg
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: So, we know how to calculate confidence intervals using both simulation (bootstrapping) and formulas. Let's do both on a given dataset, and see how they compare to one another.
+
+- Class: figure
+  Output: Every Fourth of July, Nathan's Famous in New York City holds a hot dog eating contest, in which contestants try to eat as many hot dogs (with buns) as possible in ten minutes. The data set HotDogs contains the winning number of hot dogs for each year from 2002-2011.
+  Figure: caffeine.R
+  FigureType: new
+
+
+- Class: cmd_question
+  Output: I've loaded this dataset into R from the Lock5Package.  Lets take a look at this dataset by clicking on it in the upper rigth panel.
+  CorrectAnswer: View(HotDogs)
+  AnswerTests: omnitest(correctExpr='View(HotDogs)')
+  Hint: You can also type View(HotDogs) with a capitol V
+
+- Class: cmd_question
+  Output: Let's first create a bootstrap distribution for the mean number of hot dogs needed to win the contest (in this case, our parameter is the "population mean" or, the average number of hot dogs need to win if you looked at ALL past and future years of the contest). Try it now, enter - Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}.
+  CorrectAnswer: Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}
+  AnswerTests: omnitest(correctExpr='Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}')
+  Hint: Type Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}
+
+- Class: cmd_question
+  Output:  Lets look at our bootstrap means using the head function.
+  CorrectAnswer: head(Bootdat)
+  AnswerTests: omnitest(correctExpr='head(Bootdat)')
+  Hint: Enter - head(Bootdat)
+  
+- Class: cmd_question
+  Output: Now, let's get a confidence interval using the qdata functon - bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)
+  CorrectAnswer: bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)
+  AnswerTests: omnitest(correctExpr='bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)')
+  Hint: Enter - bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)
+
+- Class: cmd_question
+  Output: Lets look at our interval by typing - bootCI
+  CorrectAnswer: bootCI
+  AnswerTests: omnitest(correctExpr='bootCI')
+  Hint: Enter - bootCI
+
+- Class: text
+  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of approximately (52, 60). We are 95% sure that the mean number of hotdogs needed to win the contest is between 52 and  60! Thats a lot of hot dogs!
+
+- Class: cmd_question
+  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, sample mean +/- t* x SE, where SE = s / sqrt(n).  Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE.  Lets calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10) (since there are 10 cases in the dataframe).
+  CorrectAnswer: formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10)
+  AnswerTests: omnitest(correctExpr='formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10)')
+  Hint: Enter - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10)
+
+- Class: cmd_question
+  Output: We need two more things to make a confidence interval. We need the mean number of hotdogs in our sample data and the t* for a 95% confidence interval. Let's get the mean first - call it formMean (for formula mean), formMean<-mean(~HotDogs, data=HotDogs).
+  CorrectAnswer: formMean <- mean(~HotDogs, data=HotDogs)
+  AnswerTests: omnitest(correctExpr='formMean <- mean(~HotDogs, data=HotDogs)')
+  Hint: Enter - formMean <- mean(~HotDogs, data=HotDogs)
+
+- Class: exact_question
+  Output: Lastly, we need a t* value for our 95% confidence interval. If df = n-1, how many degrees of freedom should our t-distribution have?
+  CorrectAnswer: 9
+  AnswerTests: omnitest(correctExpr='9')
+  Hint: Remember, n=10 (and df = n-1). 
+
+- Class: cmd_question
+  Output: Exactly. So, we can get t* (and store it in an object called tstars) by using the xqt function as follows - tstars <- xqt(p=c(.025, .975), df=9)
+  CorrectAnswer: tstars <- xqt(p=c(.025, .975), df=9)
+  AnswerTests: omnitest(correctExpr='tstars <- xqt(p=c(.025, .975), df=9)')
+  Hint: Enter -  tstars <- xqt(p=c(.025, .975), df=9)
+
+- Class: cmd_question
+  Output: Let's put it all together to see our formula-produced confidence interval. Try it out now - formCI <- formMean + tstars*formSE
+  CorrectAnswer: formCI <- formMean + tstars*formSE
+  AnswerTests: omnitest(correctExpr='formCI <- formMean + tstars*formSE')
+  Hint: Enter - formCI <- formMean + tstars*formSE
+
+- Class: cmd_question
+  Output: Let's print this interval to take a look. Enter - formCI
+  CorrectAnswer: formCI
+  AnswerTests: omnitest(correctExpr='formCI')
+  Hint: Enter - formCI
+
+- Class: cmd_question
+  Output: Now, let's print out our boostrap confidence interval - bootCI.
+  CorrectAnswer: bootCI
+  AnswerTests: omnitest(correctExpr='bootCI')
+  Hint: Enter - bootCI
+
+- Class: mult_question
+  Output: What do you notice about these two intervals?
+  AnswerChoices: The bootstrap interval is much bigger;The formula interval is much bigger;They're about the same
+  CorrectAnswer: They're about the same
+  AnswerTests: omnitest(correctVal='They\'re about the same')
+  Hint: They are not exactly the same, but they are awfully close.  When you get up near 50 hotdogs, another 1/3 of a hotdog doesn't matter all that much does it?
+
+- Class: text
+  Output: As long as our sample size is big enough, OR our data is approximately normal, these intervals should be pretty similar. The formula version has the benefit of not needing any computation, but the bootstrap version is more flexible.
+
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 7.2. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 
+

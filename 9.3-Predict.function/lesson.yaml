@@ -1,0 +1,68 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 9.3 - Predict function
+  Author: John Fieberg and Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to Pre-lab 9.3. This will be a short lab illustrating the use of the predict function with a fitted linear model. 
+
+- Class: figure
+  Output: Lets revisit our model relating temperature change to meal size in rattlesnakes.
+  Figure: rattle2.R
+  FigureType: new
+   
+- Class: cmd_question
+  Output: "OK, lets look again at the summary of our fitted model.  Type: summary(snake.lm)" 
+  CorrectAnswer: summary(snake.lm)
+  AnswerTests: omnitest(correctExpr='summary(snake.lm)')
+  Hint: Enter -  summary(snake.lm)
+
+- Class: text
+  Output: "We can predict the temperature when a rattlesnake eats a meal of size = 20 units by plugging and chugging: 0.32+0.027*20 =0.86.  Or, we could use the predict function.  In this lab, we will see how to use the predict function." 
+
+- Class: cmd_question
+  Output: We can get a confidence interval for the AVERAGE temperature change following a meal of size 20 units using - predict(snake.lm, newdata=data.frame(meal.size=20), interval="confidence").  Try it!
+  CorrectAnswer: predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"confidence\") 
+  AnswerTests: omnitest(correctExpr='predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"confidence\")')
+  Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval="confidence")
+  
+- Class: cmd_question
+  Output: We can get a prediction interval for a NEW OBSERVATION  following a meal of size 20 units using-  predict(snake.lm, newdata=data.frame(meal.size=20), interval="prediction").  Try it!
+  CorrectAnswer: predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\") 
+  AnswerTests: omnitest(correctExpr='predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\")')
+  Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval="prediction")
+  
+
+- Class: mult_question
+  Output: Which is larger? Why?
+  AnswerChoices: confidence interval since we need to be confident in our answer;  prediction interval since we must account for uncertainty in the true line as well as variation about the line
+  CorrectAnswer: prediction interval since we must account for uncertainty in the true line as well as variation about the line
+  AnswerTests: omnitest(correctVal='prediction interval since we must account for uncertainty in the true line as well as variation about the line')
+  Hint: Look at the arguments in the help file
+
+- Class: cmd_question
+  Output: "Lastly, we can visualize confidence bands and prediction bands (i.e. confidence and prediction intervals for the full range of meal sizes in our data) using:  xyplot(temp.change~meal.size, data=Rattlesnakes, panel=panel.lmbands). Try it!"
+  CorrectAnswer:  xyplot(temp.change~meal.size, data=Rattlesnakes, panel=panel.lmbands)
+  AnswerTests: omnitest(correctExpr='xyplot(temp.change~meal.size, data=Rattlesnakes, panel=panel.lmbands)')
+  Hint: Enter -   xyplot(temp.change~meal.size, data=Rattlesnakes, panel=panel.lmbands)
+
+- Class: mult_question
+  Output: Which set of lines gives use prediction intervals?
+  AnswerChoices: blue; pink; green
+  CorrectAnswer: pink
+  AnswerTests: omnitest(correctVal='pink')
+  Hint: Which interval is bigger, prediction or confidence interval?
+    
+- Class: text
+  Output: Yes.  Confidence intervals/bands only account for our uncertainty regarding the best fit line. By contrast, prediction intervals/bands capture uncertainty associated with the best-fit line, but also the variation about the line. Notice how prediction bands cover encompass nearly all of the data!
+
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 9.3. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 
+

@@ -1,0 +1,116 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 9.1 - Regression and prediction
+  Author: Nick Gondek and John Fieberg
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: figure
+  Output: Welcome to Pre-lab 9. We will explore linear regression in R using a data set called Rattlesnakes
+    from the abd library.  
+  Figure: Rattle.R
+  FigureType: new
+   
+  
+- Class: cmd_question
+  Output:  Lets take a look at this dataset by clicking on it in the upper right panel.
+  CorrectAnswer: View(Rattlesnakes)
+  AnswerTests: omnitest(correctExpr='View(Rattlesnakes)')
+  Hint: You can also type View(Rattlesnakes) with a capitol V
+
+- Class: text
+  Output: We have 2 variables, mean.size and temp.change.  These data come from a study looking at the change in temperature (in rattlensakes) following a meal.
+
+- Class: mult_question
+  Output: We have 2 quantitative variables. How can we explore, visually, whether they are associated?
+  AnswerChoices: dotPlot; boxplot; xyplot; histogram
+  CorrectAnswer: xyplot
+  AnswerTests: omnitest(correctVal='xyplot')
+  Hint: Think scatterplot
+
+- Class: cmd_question
+  Output: Yes, a scatterplot using xyplot.  Lets plot change in temperature on the y axis and meal size on the x axis.
+  CorrectAnswer: xyplot(temp.change~meal.size, data=Rattlesnakes)
+  AnswerTests: omnitest(correctExpr='xyplot(temp.change~meal.size, data=Rattlesnakes)')
+  Hint: Enter -  xyplot(temp.change~meal.size, data=Rattlesnakes)
+
+- Class: cmd_question
+  Output: "OK, lets fit a linear regression model to these data.  Type: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)"
+  CorrectAnswer: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
+  AnswerTests: omnitest(correctExpr='snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)')
+  Hint: Enter -  snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
+
+
+- Class: cmd_question
+  Output: "OK, lets look at what that did. We can explore the fit of the model using the summary function.  Type: summary(snake.lm)" 
+  CorrectAnswer: summary(snake.lm)
+  AnswerTests: omnitest(correctExpr='summary(snake.lm)')
+  Hint: Enter -  summary(snake.lm)
+
+- Class: exact_question
+  Output: There is a lot to look at here We will start with one of the most important things, the estimated slope. Underneath the "Coefficients:" section, what value is listed underneath "Estimate" and to the right of "meal.size"?  Enter your answer using 3 decimal places.
+  CorrectAnswer: .027
+  AnswerTests: omnitest(correctVal='.027')
+  Hint: Coefficients are near the middle of that block of output.  Enter your answer to 3 decimal places!
+
+- Class: cmd_question
+  Output: "That is the slope value for 'meal.size' in a linear equation relating the change in a rattlesnake's temperature to the size of the meal just eaten. We can use this model to predict a temperature change for any meal.size using: Temp.change = 0.32+ 0.027 * meal.size. Using this equation, what temperature change would you expect to follow a meal that is 20 units?"
+  CorrectAnswer: 0.32+20*0.027
+  AnswerTests: omnitest(correctExpr='0.32+20*0.027', correctVal='0.86')
+  Hint: Plug in south = 20 to this equation - temp.change = 0.32 + meal.size*0.027
+
+- Class: cmd_question
+  Output: "Lets add this best fit line to our scatterplot. We can do this using the following:  ladd(panel.abline(snake.lm)).  Try it!"
+  CorrectAnswer:   ladd(panel.abline(snake.lm))
+  AnswerTests: omnitest(correctExpr='ladd(panel.abline(snake.lm))')
+  Hint: Enter -    ladd(panel.abline(snake.lm))
+
+
+- Class: cmd_question
+  Output: "We could also do all this with one line of code by typing: xyplot(temp.change~meal.size, type=c('p','r'), data=Rattlesnakes).  NOte the 'p' stands for points and the 'r' stands for lines. Try it!"
+  CorrectAnswer:   xyplot(temp.change~meal.size, type=c('p','r'), data=Rattlesnakes)
+  AnswerTests: omnitest(correctExpr='xyplot(temp.change~meal.size, type=c(\'p\',\'r\'), data=Rattlesnakes)')
+  Hint: Enter -    xyplot(temp.change~meal.size, type=c('p','r'), data=Rattlesnakes)
+
+
+- Class: text
+  Output: We can now visualize the best fit line, which clearly shows that larger meals are associated with larger temperature changes. 
+
+- Class: cmd_question
+  Output: "OK, lets look again at the summary of our fitted model.  Type: summary(snake.lm)" 
+  CorrectAnswer: summary(snake.lm)
+  AnswerTests: omnitest(correctExpr='summary(snake.lm)')
+  Hint: Enter -  summary(snake.lm)
+
+- Class: mult_question
+  Output:  R provides a SE for the slope estimate and also a p-value for a test of the Null Hypothesis that the true slope is 0. Do we have enough evidence to suggest the slope is truly different from 0?
+  AnswerChoices: Yes; No
+  CorrectAnswer: Yes
+  AnswerTests: omnitest(correctVal='Yes')
+  Hint: The lower the p-value, the more evidence against the null hypothesis. The p-value here is 0.00000093
+ 
+- Class: exact_question
+  Output: We've looked at slope estimates and the significance of those slope estimates, so let's take a look at another useful metric - R-squared. What is the value for 'ADJUSTED r-squared' for this model?  Report your answer to 3 decimal places.
+  CorrectAnswer: 0.795
+  AnswerTests: omnitest(correctVal=0.795)
+  Hint: Adjusted r-squared can be found on the second to last line of the output from summary(lm()). Report it to 3 decimal places
+  
+- Class: mult_question
+  Output: Right, our r-squared is 0.795. What does that mean?
+  AnswerChoices: The model explains about 80 percent of the variance in temperature changes; The model accounts for 80 percent of the variance in meal sizes
+  CorrectAnswer: The model explains about 80 percent of the variance in temperature changes
+  AnswerTests: omnitest(correctVal='The model explains about 80 percent of the variance in temperature changes')
+  Hint: 
+
+
+- Class: text
+  Output: Those are the basic mechanics of a best fit line and linear regression. In the next section, we'll explore plots used to determine if the assumptions of the model are reasonable.
+
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 9.1. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 
+

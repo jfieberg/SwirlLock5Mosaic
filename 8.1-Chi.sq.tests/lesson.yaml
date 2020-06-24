@@ -1,0 +1,81 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 8.1 - Chi-square Tests
+  Author: Nick Gondek and John Fieberg
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to Pre-lab 8! In these two sections, we'll look at two tests for analysis of multiple groups, the chi-square test and analysis of variance (ANOVA) test.
+
+- Class: cmd_question
+  Output: We're going to be taking a look at another dataset from Lock5Data, in which cocaine users were treated with different treatments in an effort to prevent relapse. Click on the dataset CocaineTreatment in your workspace.
+  CorrectAnswer: View(CocaineTreatment)
+  AnswerTests: omnitest(correctExpr='View(CocaineTreatment)')
+  Hint: Just click on CocaineTreatment in the top right panel. 
+
+- Class: mult_question
+  Output: What kind of variables do we have here?
+  AnswerChoices: two categorical;one quantitative and one categorical;two quantitative
+  CorrectAnswer: two categorical
+  AnswerTests: omnitest(correctVal='two categorical')
+  Hint: Are any of the variables quantifiable? 
+
+- Class: cmd_question
+  Output: We're looking at two categorical variables here. Since we want to know if the treatments differ in their rates of success, we will use a chi-square test for association. First, let's tally the relapses for each treatment. Type -  (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")).  NOte, the extra "( )" around the expression will print AND save tally as an object.
+  CorrectAnswer: (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion"))
+  AnswerTests: omnitest(correctExpr='(CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format=\"proportion\"))')
+  Hint: Enter - (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")), note, make sure you have the extra "(" and ")" around the expression.
+ 
+
+- Class: text
+  Output: Superficially, it looks like Desipramine does a better job of preventing a relapse - a larger proportion of users who  were treated with Desipramine did not relapse (when compared to the  other two treatment groups). Let's see if these differences are statistically significant. 
+ 
+- Class: cmd_question
+  Output: Fundamentally, we want to compare the observed counts of each drug x relapse combination with what we'd expect if the drug used had no influence on relapse. To figure out what we'd expect, let's look at the overall proportion of relapses, regardless of treatment. Enter - tally(~Relapse, data=CocaineTreatment, format='proportion')
+  CorrectAnswer: tally(~Relapse, data=CocaineTreatment, format='proportion')
+  AnswerTests: omnitest(correctExpr='tally(~Relapse, data=CocaineTreatment, format=\'proportion\')')
+  Hint: Enter - tally(~Relapse, data=CocaineTreatment, format='proportion')
+ 
+- Class: exact_question
+  Output: So, if two thirds of users in this study relapse, and there were 24 individuals in each treatment group, how many relapses would we expect for each treatment group if there was no influence of the drug taken?
+  CorrectAnswer: 16
+  AnswerTests: any_of_exprs('16', '24*2/3', '24/3*2')
+  Hint: 2/3 of users in the study relapse, and there are 24 users in each group. 24 * 2/3 = ...
+
+- Class: cmd_question
+  Output: Exactly. If the null hypothesis is true (the drugs have no effect), then we expect 16 users to relapse and 8 NOT to relapse (regardless of the drug). Now, for each drug x relapse combination, we calculate a 'residual' - (observed - expected)^2 / expected. So, what is our residual for Desipramine users who relapsed? We observed 10, and we expect 16. 
+  CorrectAnswer: (10-16)^2/16
+  AnswerTests: omnitest(correctExpr='(10-16)^2/16', correctVal='2.25')
+  Hint: Remember, the formula for our residual is (Observed - Expected)^2 / Expected. 
+
+- Class: text
+  Output: So, we got 2.25 as our first residual. If you didn't have R, you'd finish up by hand, but fortunately, we can compute the rest automatically!
+
+- Class: cmd_question
+  Output: Try it now using xchisq.test() - xchisq.test(tally(Relapse~Drug, data=CocaineTreatment))
+  CorrectAnswer: xchisq.test(tally(Relapse~Drug, data=CocaineTreatment))
+  AnswerTests: omnitest(correctExpr='xchisq.test(tally(Relapse~Drug, data=CocaineTreatment))')
+  Hint: Enter - xchisq.test(tally(Relapse~Drug, data=CocaineTreatment))
+
+- Class: text
+  Output: Unfortunately, xchisq.test drops the names of the variables.  But, the residual you just calculated was in the first column, second row. If you look inside the brackets, you'll see the exact value you just calculated - 2.25! (Note, mosaic calls these residuals 'contribution to the X-squared', because the summation of each individual calculation is called the chi-squared statistic)
+
+- Class: mult_question
+  Output: Looking at the summary of our chisq.test(), can we say that there IS a significant association between treatment and tendency to relapse (at the 95% confidence level)? Hint - look for the p-value. 
+  AnswerChoices: Yes;No
+  CorrectAnswer: Yes
+  AnswerTests: omnitest(correctVal='Yes')
+  Hint: Is p < .05?
+
+- Class: text
+  Output: Exactly - we can reject the null hypothesis that the treatment group has no association with relapse rate!
+
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 8.1. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 
+

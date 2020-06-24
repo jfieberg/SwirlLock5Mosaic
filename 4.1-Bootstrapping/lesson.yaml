@@ -1,0 +1,85 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 4.1 - Bootstrap distributions
+  Author: Nick Gondek and John Fieberg
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to Pre-lab 4! In this section, we're going to create a couple of bootstrap distributions and confidence intervals. 
+
+- Class: mult_question
+  Output: Just as a review, let's recall what we do to create a bootstrap distribution. We take a data set of size 'n', and do what with it?
+  AnswerChoices: Randomly choose 'n' observations with replacement (any individual observation can be chosen many times); Randomly choose 'n' observations without replacement (any individual observation can only be chosen once)
+  CorrectAnswer: Randomly choose 'n' observations with replacement (any individual observation can be chosen many times)
+  AnswerTests: omnitest(correctVal= 'Randomly choose \'n\' observations with replacement (any individual observation can be chosen many times)')
+  Hint: Try again - if we took a random sample of 'n' observations without replacement from a data set of size 'n', we'd have the exact same data every time!
+  
+- Class: mult_question
+  Output: Great. To that effect, which function would we use to take this sample (with replacement)?
+  AnswerChoices: sample();resample()
+  CorrectAnswer: resample()
+  AnswerTests: omnitest(correctVal= 'resample()')
+  Hint: sample() is used to sample without replacement. 
+  
+- Class: figure
+  Output: Exactly. Time to try it out - in pre-labs 4 and 5, we'll look at a very simple dataset from Lock5Data, CaffeineTaps. In this study, 20 male college students were either given decaf or caffeinated coffee, and their finger tapping rate was recorded in order to determine whether caffeine influenced their average tap rate. 
+  Figure: caffeine.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: Now, let's open up our dataset by clicking on its name in the workspace. Try it now.
+  CorrectAnswer: View(CaffeineTaps)
+  AnswerTests: omnitest(correctExpr='View(CaffeineTaps)')
+  Hint: No need to type anything - just click on CaffeineTaps in the workspace.
+
+- Class: text
+  Output: You'll see that this is a very simple dataset - one categorical variable and one quantitative. Now, let's see if we can get some insight into the question at hand, whether caffeine influences tap rate. Let's look at the mean number of Taps in the two groups.
+
+- Class: cmd_question
+  Output: Try it now - mean(Taps~Group, data=CaffeineTaps)
+  CorrectAnswer: mean(Taps~Group, data=CaffeineTaps)
+  AnswerTests: omnitest(correctExpr='mean(Taps~Group, data=CaffeineTaps)')
+  Hint: Enter - mean(Taps~Group, data=CaffeineTaps)
+
+- Class: text
+  Output: Just looking at this doesn't give us much statistical insight... Caffeine does appear to create a higher tap rate, but we have no clue how much variation there is in each group, so that 4 tap difference might be meaningless!
+
+- Class: cmd_question
+  Output: Lets begin by quantifying our uncertainty in the mean number of Taps for the caffeine group by creating a bootstrap distribution. We can use the filter function to isolate the data from just this group - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
+  CorrectAnswer: CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
+  AnswerTests: omnitest(correctExpr='CaffGroup <- filter(CaffeineTaps,Group==\"Caffeine\")')
+  Hint: Enter - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
+
+- Class: cmd_question
+  Output: Now that we have the data we want, let's use a do loop to resample the data many times over to see how much the mean changes! Try it now - CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}
+  CorrectAnswer: CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}
+  AnswerTests: omnitest(correctExpr='CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}')
+  Hint: Enter - CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}
+
+- Class: cmd_question
+  Output: Lets take a look at what we created by looking at the first few rows of the CaffBoot object using the head function. 
+  CorrectAnswer: head(CaffBoot) 
+  AnswerTests: omnitest(correctExpr='head(CaffBoot)')
+  Hint: Enter - head(CaffBoot) 
+
+- Class: text
+  Output: If you look closely, you will see that R labeled the column of bootstrap means 'result'. Note, if you had typed do(1000)*mean(~Taps, data=resample(CaffGroup)) then R would have named the column of bootstrap means 'mean'.  Its always important to see how the column of bootstrap results are labeled!
+
+- Class: cmd_question
+  Output: You have created your first bootstrap distribution! You'll learn how to calculate a confidence interval using this distribution in the next section, but let's look at a histogram of the bootstrap means. Try it - histogram(~result, data=CaffBoot).
+  CorrectAnswer: histogram(~result, data=CaffBoot)
+  AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot)')
+  Hint: Try it - histogram(~result, data=CaffBoot)
+  
+- Class: text
+  Output: We can see that our distribution is centered at the mean for the caffeine group, 248.3. We'll do some more analysis in the next section!
+
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 4.1. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 
+

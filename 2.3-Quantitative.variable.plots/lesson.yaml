@@ -1,0 +1,63 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 2.3 - Quantitative variable plots
+  Author: Nick Gondek and John Fieberg
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: figure
+  Output: Just like we did with categorical variables, we'll now take a look at how we vizualize quantitative variables. 
+  Figure: student.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: Just like the last couple of lessons, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Click on the name to open it up.
+  CorrectAnswer: View(StudentSurvey)
+  AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
+  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel.
+
+- Class: cmd_question
+  Output: One of the most common ways we vizualize quantitative data is to use a histogram. A histogram is a useful way to eyeball where most of our data might fall for a particular variable. For example, let's look at the distribution of SAT scores across the students who took the survey. Try it now using histogram(~SAT, data=StudentSurvey).
+  CorrectAnswer: histogram(~SAT, data=StudentSurvey)
+  AnswerTests: omnitest(correctExpr='histogram(~SAT, data=StudentSurvey)')
+  Hint: From now on, we won't accept code that uses our familiar format - goal(y~x, data=mydata) - if it does not contain the ~ ! Enter the following code exactly - histogram(~SAT, data=StudentSurvey)
+
+- Class: mult_question
+  Output: Using the histogram we just generated, which SAT score is most common amongst the survey takers? Note - the y-axis, density, refers to frequency of SAT scores in each bin divided by how many survey takers there were (362).
+  AnswerChoices: about 1000;about 1100;about 1200;about 1300
+  CorrectAnswer: about 1200
+  AnswerTests: omnitest(correctVal='about 1200')
+  Hint: Since we are looking at frequency (how many of the students have a SAT score that fall into each bin), we are looking for the highest bar in the plot. 
+
+- Class: cmd_question
+  Output: Another common way to visualize a single quantitative variable is to use a density plot. We'll use the same format as a histogram, except this time, we use the densityplot() function. Try it using the GPA variable - densityplot(~GPA, data=StudentSurvey).
+  CorrectAnswer: densityplot(~GPA, data=StudentSurvey)
+  AnswerTests: omnitest(correctExpr='densityplot(~GPA, data=StudentSurvey)')
+  Hint: Remember that the ~ is necessary from now on! Try this - densityplot(~GPA, data=StudentSurvey)
+
+- Class: mult_question
+  Output: Great job. Using the density plot we just created, which GPA was most frequent for the students who took the survey?
+  AnswerChoices: 3.0;3.5;4.0
+  CorrectAnswer: 3.5
+  AnswerTests: omnitest(correctVal='3.5')
+  Hint: Again, we're looking for the peak of the data!
+
+- Class: cmd_question
+  Output: Just like with the categorical plots, we can use the groups argument to compare using another categorical variable. This time, we'll see how the distrubtion in number of piercings looks between Males and Females. Try it out now - densityplot(~Piercings, data=StudentSurvey, groups=Gender, auto.key = TRUE)
+  CorrectAnswer: densityplot(~Piercings, data=StudentSurvey, groups=Gender, auto.key = TRUE)
+  AnswerTests: omnitest(correctExpr='densityplot(~Piercings, data=StudentSurvey, groups=Gender, auto.key = TRUE)')
+  Hint: Remember to use the ~ in front of Piercings! Try it - densityplot(~Piercings, data=StudentSurvey, groups=Gender, auto.key = TRUE)
+
+- Class: exact_question
+  Output: Looking at our density plot, what number of piercings is most common for Females?
+  CorrectAnswer: 2
+  AnswerTests: omnitest(correctVal=2)
+  Hint: Look at the legend! Since R has automatically assigned colors, the pink line denotes males and the blue line denotes females. R clearly doesn't subscribe to gender norms!
+
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 2.3. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 

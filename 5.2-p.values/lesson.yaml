@@ -1,0 +1,83 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 5.2 - P-value
+  Author: Nick Gondek and John Fieberg
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: figure
+  Output: Now that we've got a feel for what a randomization distribution is, let's have you make one for CaffeineTaps so we can answer our question once and for all - does caffeine increase students' tap rate? 
+  Figure: caffeine.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: First off, let's get the actual difference in mean (diffmean) between the two groups. Try it now - CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)
+  CorrectAnswer: CaffDiff<- diffmean(Taps~Group, data=CaffeineTaps)
+  AnswerTests: omnitest(correctExpr='CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)')
+  Hint: Enter - CaffDiff <- diffmean(Taps~Group, data=caffeineTaps)
+
+- Class: cmd_question
+  Output: Lets look at this object we created called CaffDiff.  Type "CaffDiff" to see the difference in means between the two groups.
+  CorrectAnswer: CaffDiff
+  AnswerTests: omnitest(correctExpr='CaffDiff')
+  Hint: Enter - CaffDiff
+  
+- Class: cmd_question
+  Output: If you didn't already know which group had the larger mean, you might not know how to interpret this value, diffmean. It is always a good idea to use the mean() function along with diffmean. Try it now, just replace diffmean with mean in the previous code.
+  CorrectAnswer: mean(Taps~Group, data=CaffeineTaps)
+  AnswerTests: omnitest(correctExpr='mean(Taps~Group, data=CaffeineTaps)')
+  Hint: Enter - mean(Taps~Group, data=caffeineTaps)
+
+- Class: text
+  Output: So now we know that we're subtracting the Caffeine group from the NoCaffeine group, and that the difference is -3.5.
+
+- Class: text
+  Output: Now, we need to make a randomization distribution. Recall, we want to create datasets where the Null Hypothesis is true - i.e., we want create datasets where caffeination has no effect on tap rate.  We can do this by randomly assigning the group label "Caffeiene" or "No Caffeiene" to each case!  We will then calculate the statistic of interest (here diffmean) to see what values are likely when the Null Hypothesis is true!
+
+- Class: cmd_question
+  Output: In R, we can accomplish this task using the shuffle() function.  Shuffle will randomly reorder the Groups variable. We can combine shuffle with the function diffmean. Try it now - diffmean(Taps~shuffle(Group), data=CaffeineTaps)
+  CorrectAnswer: diffmean(Taps~shuffle(Group), data=CaffeineTaps)
+  AnswerTests: omnitest(correctExpr='diffmean(Taps~shuffle(Group), data=CaffeineTaps)')
+  Hint: Enter - diffmean(Taps~shuffle(Group), data=CaffeineTaps)
+
+- Class: cmd_question
+  Output: Great, that's exactly what we want. You'll notice that this value is different than the statistic (difference in means) that we calculated with our original data, which was -3.5. Now, we want to repeat (i.e., "do") this a total of 1000 times using the following format - do()*{your code} so that we can get a better idea of the range of values we might see if the Null Hypothesis were true. Try it now, and save the output in an object called RandDist.
+  CorrectAnswer: RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}
+  AnswerTests: omnitest(correctExpr='RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}')
+  Hint: First, we need RandDist <- in order to save our different values. Then, we put the number 1000 inside the do() function in order to repeat the loop 1000 times. Lastly, we put the same code we previously used inside of the curly braces. 
+
+- Class: cmd_question
+  Output: Lets look at what we created.  Type "head(RandDist)".  
+  CorrectAnswer: head(RandDist)
+  AnswerTests: omnitest(correctExpr='head(RandDist)')
+  Hint: Type head(RandDist)
+
+- Class: text  
+  Output: Now we have a data frame, with one column called 'diffmean', and 1000 different randomized diffmean values. 
+
+- Class: cmd_question
+  Output: Let's plot these values using a histogram in order to see where the diffmean we calculated with the original data (stored in the object, CaffDiff) lies. Try it now - histogram(~diffmean, data=RandDist, v=CaffDiff)
+  CorrectAnswer: histogram(~diffmean, data=RandDist, v=CaffDiff)
+  AnswerTests: omnitest(correctExpr='histogram(~diffmean, data=RandDist, v=CaffDiff)')
+  Hint: Enter - histogram(~diffmean, data=RandDist, v=CaffDiff)
+
+- Class: text
+  Output: Now we have a bell-shaped distribution, centered at zero, that includes 1000 possible diffmeans in the case where there is no connection between Caffeine and tap rate. To finally answer our question, we will calculate a p-value. 
+
+- Class: cmd_question
+  Output: A p-value represents the proportion of randomized values that are AS or MORE extreme as the value we observed with the original data we collected. We want to know, for how many of our simulated datasets did we get a diffmean value as extreme as -3.5? We can figure this out by typing- 2*prop(~diffmean < CaffDiff, data=RandDist) for a 2-sided p-value.  This calculation is approximately the same as determining the probability of getting a difference in means less than -3.5 or greater than 3.5.
+  CorrectAnswer: 2*prop(~diffmean < CaffDiff, data=RandDist)
+  AnswerTests: omnitest(correctExpr='2*prop(~diffmean < CaffDiff, data=RandDist)')
+  Hint: Enter - 2*prop(~diffmean < CaffDiff, data=RandDist)
+
+- Class: text
+  Output: At a 95% confidence level, we call something significant if the p-value is lower than .05 - and this is MUCH lower than .05! Thus, we can say with statistical confidence that Caffeine affects Tap rate in students. In the next section, we'll work on identifying the differences between randomization and bootstrap distributions.
+  
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 5.2. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 
+

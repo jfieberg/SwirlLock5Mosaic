@@ -1,0 +1,73 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 5.1 - Randomization Distribution
+  Author: Nick Gondek and John Fieberg
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to Pre-lab 5! In this pre-lab, we're going to perform a hypothesis test by creating a randomization distribution, and see how this differs fundamentally from bootstrapping. 
+
+- Class: figure
+  Output: We'll be using the same dataset as we had in Pre-lab 4 - CaffeineTaps. Our goal today is to answer the following question - do caffeinated students tap at a greater rate than non-caffeinated students? First, though, we're going to go through some fundamentals of hypothesis testing.
+  Figure: caffeine.R
+  FigureType: new
+
+- Class: text
+  Output: The first step in performing a hypothesis test is to come up with a pair of testable hypotheses. These are referred to as the null hypothesis and the alternative hypothesis. The Null Hypothesis is usually that there "no effect" or difference between groups.  The alternative hypothesis is the claim we seek evidence for (e.g., there is a discernable difference between groups). 
+
+- Class: mult_question
+  Output: So, which of the following is our null hypothesis for our Caffeine experiment?
+  AnswerChoices: The difference in tap rate between the caffeinated and uncaffeinated groups will equal zero.;The difference in tap rate between the caffeinated and uncaffeinated groups will NOT equal zero.
+  CorrectAnswer: The difference in tap rate between the caffeinated and uncaffeinated groups will equal zero.
+  AnswerTests: omnitest(correctVal='The difference in tap rate between the caffeinated and uncaffeinated groups will equal zero.')
+  Hint: This assumes that there is no difference between the groups we are comparing. 
+
+- Class: mult_question
+  Output: Conversely, which is the alternative hypothesis?
+  AnswerChoices: The difference in tap rate between the caffeinated and uncaffeinated groups will equal zero.;The difference in tap rate between the caffeinated and uncaffeinated groups will NOT equal zero.
+  CorrectAnswer: The difference in tap rate between the caffeinated and uncaffeinated groups will NOT equal zero.
+  AnswerTests: omnitest(correctVal='The difference in tap rate between the caffeinated and uncaffeinated groups will NOT equal zero.')
+  Hint: This hypothesis assumes that our groups are actually different!
+
+- Class: text
+  Output: You may have noticed something there. Let's break this down to two different formulas - H0 will represent the Null Hypothesis, HA will represent the Alternative Hypothesis, and diffmean will represent the difference in mean tap rates between the two groups.  
+
+- Class: mult_question
+  Output: Our two hypotheses are as follows. H0 -> diffmean = 0, HA -> diffmean != (not equal) 0. Just by looking at these two equations, which has more possibilities of being true?
+  AnswerChoices: HA;H0;They're the same
+  CorrectAnswer: HA
+  AnswerTests: omnitest(correctVal='HA')
+  Hint: For H0 to be true, the diffmean needs to be EXACTLY zero. For HA, the diffmean can be ANYTHING that isn't zero. 
+
+- Class: exact_question
+  Output: In fact, for how many conditions of diffmean is H0 true? Remember, H0 -> diffmean = 0. 
+  CorrectAnswer: 1
+  AnswerTests: omnitest(correctVal='1')
+  Hint: There is only one single value of diffmean where the null hypothesis is true, 0. 
+
+- Class: text
+  Output: Exactly. You might think, based solely on this, that we would tend to accept most alternative hypotheses. However, much like in a court of law where the accused are presumed innocent until there is sufficient evidence to prove they are guilty without a reasonable doubt, we will assume the Null Hypothesis is true until we have sufficient evidence to say otherwise. If we can determine that, when the null hypothesis is true, it would be highly unlikely to see a diffmean as or more extreme as the one we observed, then we will reject the Null Hypothesis in favor of the alternative.
+
+- Class: figure
+  Output: To conduct the hypothesis test, we will simulate many, many samples where the null hypothesis is TRUE.  We will calculate the same statistic of interest (here, diffmean) for each of these samples. We will then compare our observed diffmean (for our original data) to this distribution to determine if our statistic should be considered extreme (when the Null Hypothesis is true).
+  Figure: RandEg.R
+  FigureType: new
+  
+- Class: exact_question
+  Output: I've created a randomization distribution appropriate for this hypothesis test.  Click on the "Plots" tab in the lower right corner of Rstudio to view it.  What value is this disribution approximately centered on?
+  CorrectAnswer: 0
+  AnswerTests: omnitest(correctVal='0')
+  Hint: If we are simulating cases where the the groups don't matter (H0 is true), what should the difference in means be?
+
+- Class: text
+  Output: Exactly - in the next section, we'll learn how to produce a distribution like this one, and we'll learn how to quantify how extreme our observed statistic is! 
+
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 5.1. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 
+
