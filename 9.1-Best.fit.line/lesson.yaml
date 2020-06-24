@@ -24,16 +24,16 @@
 
 - Class: mult_question
   Output: We have 2 quantitative variables. How can we explore, visually, whether they are associated?
-  AnswerChoices: dotPlot; boxplot; xyplot; histogram
-  CorrectAnswer: xyplot
-  AnswerTests: omnitest(correctVal='xyplot')
+  AnswerChoices: gf_dotplot; gf_boxplot; gf_point; gf_histogram
+  CorrectAnswer: gf_point
+  AnswerTests: omnitest(correctVal='gf_point')
   Hint: Think scatterplot
 
 - Class: cmd_question
-  Output: Yes, a scatterplot using xyplot.  Lets plot change in temperature on the y axis and meal size on the x axis.
-  CorrectAnswer: xyplot(temp.change~meal.size, data=Rattlesnakes)
-  AnswerTests: omnitest(correctExpr='xyplot(temp.change~meal.size, data=Rattlesnakes)')
-  Hint: Enter -  xyplot(temp.change~meal.size, data=Rattlesnakes)
+  Output: Yes, a scatterplot using gf_point.  Lets plot change in temperature on the y axis and meal size on the x axis.
+  CorrectAnswer: gf_point(temp.change~meal.size, data=Rattlesnakes)
+  AnswerTests: omnitest(correctExpr='gf_point(temp.change~meal.size, data=Rattlesnakes)')
+  Hint: Enter -  gf_point(temp.change~meal.size, data=Rattlesnakes)
 
 - Class: cmd_question
   Output: "OK, lets fit a linear regression model to these data.  Type: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)"
@@ -61,18 +61,12 @@
   Hint: Plug in south = 20 to this equation - temp.change = 0.32 + meal.size*0.027
 
 - Class: cmd_question
-  Output: "Lets add this best fit line to our scatterplot. We can do this using the following:  ladd(panel.abline(snake.lm)).  Try it!"
-  CorrectAnswer:   ladd(panel.abline(snake.lm))
-  AnswerTests: omnitest(correctExpr='ladd(panel.abline(snake.lm))')
-  Hint: Enter -    ladd(panel.abline(snake.lm))
+  Output: "Lets add this best fit line to our scatterplot. We can do this using the following code: gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm() Try it!"
+  CorrectAnswer:   gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm()
+  AnswerTests: omnitest(correctExpr='gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm()')
+  Hint: Enter -    gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm()
 
-
-- Class: cmd_question
-  Output: "We could also do all this with one line of code by typing: xyplot(temp.change~meal.size, type=c('p','r'), data=Rattlesnakes).  NOte the 'p' stands for points and the 'r' stands for lines. Try it!"
-  CorrectAnswer:   xyplot(temp.change~meal.size, type=c('p','r'), data=Rattlesnakes)
-  AnswerTests: omnitest(correctExpr='xyplot(temp.change~meal.size, type=c(\'p\',\'r\'), data=Rattlesnakes)')
-  Hint: Enter -    xyplot(temp.change~meal.size, type=c('p','r'), data=Rattlesnakes)
-
+ 
 
 - Class: text
   Output: We can now visualize the best fit line, which clearly shows that larger meals are associated with larger temperature changes. 
@@ -110,7 +104,7 @@
   
 - Class: mult_question
   Output: Good work! You've completed Pre-Lab 9.1. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
-  AnswerChoices: Finished !
+  AnswerChoices: Finished!
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint   

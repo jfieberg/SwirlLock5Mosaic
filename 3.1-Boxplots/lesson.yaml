@@ -37,19 +37,25 @@
   Output: Let's imagine we have a question about the cereal in this dataset. Is there a difference in average calories per serving between the cereals made by each of the 3 companies?
 
 - Class: cmd_question
-  Output: To accomplish this task, we need to look at the variable Calories versus the variable Company. One is quantitative, and one is categorical. In this case, we'll use a box-and-whisker plot (also referred to as a boxplot). Even though you probably haven't made one of these yet, the setup is similar to most other plots - goal(y~x, data=mydata). Try this now - bwplot(Calories~Company, data=Cereal)
-  CorrectAnswer: bwplot(Calories~Company, data=Cereal)
-  AnswerTests: omnitest(correctExpr='bwplot(Calories~Company, data=Cereal)')
-  Hint: Enter this -  bwplot(Calories~Company, data=Cereal)
+  Output: To accomplish this task, we need to look at the variable Calories versus the variable Company. One is quantitative, and one is categorical. In this case, we'll use a box-and-whisker plot (also referred to as a boxplot). Even though you probably haven't made one of these yet, the setup is similar to most other plots - goal(y~x, data=mydata). Try this now - gf_boxplot(Calories~Company, data=Cereal)
+  CorrectAnswer: gf_boxplot(Calories~Company, data=Cereal)
+  AnswerTests: omnitest(correctExpr='gf_boxplot(Calories~Company, data=Cereal)')
+  Hint: Enter this -  gf_boxplot(Calories~Company, data=Cereal)
 
 - Class: text
   Output: Looks like the median number of calories may differ slightly for the cereals made by these 3 companies, but the ranges overlap quite a bit. We'll learn in Chapter 8 how to determine if these differences are statistically significant. For now, however, a box and whisker plot is a useful way to do some exploratory data analysis.
 
 - Class: cmd_question
-  Output: Let's make one more box-and-whisker plot - Try it yourself, modifying your previous code.  Explore whether the Sodium content differs among the different companies!
-  CorrectAnswer: bwplot(Sodium~Company, data=Cereal)
-  AnswerTests: omnitest(correctExpr='bwplot(Sodium~Company, data=Cereal)')
-  Hint: Not much needs to change from the last bit of code we ran. Since we're now looking at Sodium instead of Calories, we just need to swap those two.
+  Output: Let's make another box-and-whisker plot by modifying your previous code.  Explore whether the Sodium content differs among the different companies!
+  CorrectAnswer: gf_boxplot(Sodium~Company, data=Cereal)
+  AnswerTests: omnitest(correctExpr='gf_boxplot(Sodium~Company, data=Cereal)')
+  Hint: Not much needs to change from the last bit of code we ran. Since we're now looking at Sodium instead of Calories, we just need to swap those two variable names - gf_boxplot(Sodium~Company, data=Cereal).
+
+- Class: cmd_question
+  Output: Now, time to get fancy.  We can also add points to our plot using "pipes" (%>%). Pipes provide a handy way to string together or combine multiple pieces of code. Try the following, gf_boxplot(Sodium~Company, data=Cereal)%>%gf_point().
+  CorrectAnswer: gf_boxplot(Sodium~Company, data=Cereal)%>%gf_point()
+  AnswerTests: omnitest(correctExpr='gf_boxplot(Sodium~Company, data=Cereal)%>%gf_point()')
+  Hint: Type, gf_boxplot(Sodium~Company, data=Cereal)%>%gf_point()
 
   
 - Class: mult_question

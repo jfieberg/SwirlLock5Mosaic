@@ -103,7 +103,7 @@
   
 - Class: mult_question
   Output: Good work! You've completed Pre-Lab 7.2. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
-  AnswerChoices: Finished !
+  AnswerChoices: Finished!
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint   

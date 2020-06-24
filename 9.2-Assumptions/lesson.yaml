@@ -55,16 +55,16 @@
   Hint: Click on StudentSurvey in the workspace.
     
 - Class: cmd_question
-  Output: We'll look at whether a model using GPA is a good predictor for SAT scores. Before we fit a model to the data, let's just take a look at the scatterplot - xyplot(SAT~GPA,StudentSurvey)
-  CorrectAnswer: xyplot(SAT~GPA,StudentSurvey)
-  AnswerTests: omnitest(correctExpr='xyplot(SAT~GPA,StudentSurvey)')
-  Hint: Enter -  xyplot(SAT~GPA,StudentSurvey)
+  Output: We'll look at whether a model using GPA is a good predictor for SAT scores. Before we fit a model to the data, let's just take a look at the scatterplot - gf_point(SAT~GPA, data=StudentSurvey)
+  CorrectAnswer: gf_point(SAT~GPA, data= StudentSurvey)
+  AnswerTests: omnitest(correctExpr='gf_point(SAT~GPA, data=StudentSurvey)')
+  Hint: Enter -  gf_point(SAT~GPA,data = StudentSurvey)
 
 - Class: cmd_question
-  Output: "Now, try using lm() to create a linear model, using GPA as a predictor for SAT. This time, save it into an object called SAT.GPA. Enter: SAT.GPA <- lm(SAT~GPA,StudentSurvey)"
-  CorrectAnswer: SAT.GPA<-lm(SAT~GPA,StudentSurvey)
-  AnswerTests: omnitest(correctExpr='SAT.GPA<-lm(SAT~GPA,StudentSurvey)')
-  Hint: Enter SAT.GPA <- lm(SAT~GPA,StudentSurvey) 
+  Output: "Now, try using lm() to create a linear model, using GPA as a predictor for SAT. This time, save it into an object called SAT.GPA. Enter: SAT.GPA <- lm(SAT~GPA,data=StudentSurvey)"
+  CorrectAnswer: SAT.GPA<-lm(SAT~GPA, data=StudentSurvey)
+  AnswerTests: omnitest(correctExpr='SAT.GPA<-lm(SAT~GPA, data=StudentSurvey)')
+  Hint: Enter SAT.GPA <- lm(SAT~GPA,data=StudentSurvey) 
 
 - Class: cmd_question
   Output: Great, now print out a summary of the fitted model using summary(SAT.GPA) 

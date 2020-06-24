@@ -15,7 +15,7 @@
   Output: First off, let's get the actual difference in mean (diffmean) between the two groups. Try it now - CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)
   CorrectAnswer: CaffDiff<- diffmean(Taps~Group, data=CaffeineTaps)
   AnswerTests: omnitest(correctExpr='CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)')
-  Hint: Enter - CaffDiff <- diffmean(Taps~Group, data=caffeineTaps)
+  Hint: Enter - CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)
 
 - Class: cmd_question
   Output: Lets look at this object we created called CaffDiff.  Type "CaffDiff" to see the difference in means between the two groups.
@@ -27,7 +27,7 @@
   Output: If you didn't already know which group had the larger mean, you might not know how to interpret this value, diffmean. It is always a good idea to use the mean() function along with diffmean. Try it now, just replace diffmean with mean in the previous code.
   CorrectAnswer: mean(Taps~Group, data=CaffeineTaps)
   AnswerTests: omnitest(correctExpr='mean(Taps~Group, data=CaffeineTaps)')
-  Hint: Enter - mean(Taps~Group, data=caffeineTaps)
+  Hint: Enter - mean(Taps~Group, data=CaffeineTaps)
 
 - Class: text
   Output: So now we know that we're subtracting the Caffeine group from the NoCaffeine group, and that the difference is -3.5.
@@ -57,10 +57,10 @@
   Output: Now we have a data frame, with one column called 'diffmean', and 1000 different randomized diffmean values. 
 
 - Class: cmd_question
-  Output: Let's plot these values using a histogram in order to see where the diffmean we calculated with the original data (stored in the object, CaffDiff) lies. Try it now - histogram(~diffmean, data=RandDist, v=CaffDiff)
-  CorrectAnswer: histogram(~diffmean, data=RandDist, v=CaffDiff)
-  AnswerTests: omnitest(correctExpr='histogram(~diffmean, data=RandDist, v=CaffDiff)')
-  Hint: Enter - histogram(~diffmean, data=RandDist, v=CaffDiff)
+  Output: Let's plot these values using a histogram in order to see where the diffmean we calculated with the original data (stored in the object, CaffDiff) lies. Try it now - gf_histogram(~diffmean, data=RandDist) %>% gf_vline(xintercept=~CaffDiff)
+  CorrectAnswer: gf_histogram(~diffmean, data=RandDist) %>% gf_vline(xintercept=~CaffDiff)
+  AnswerTests: omnitest(correctExpr='gf_histogram(~diffmean, data=RandDist) %>% gf_vline(xintercept=~CaffDiff)')
+  Hint: Enter - gf_histogram(~diffmean, data=RandDist) %>% gf_vline(xintercept=~CaffDiff)
 
 - Class: text
   Output: Now we have a bell-shaped distribution, centered at zero, that includes 1000 possible diffmeans in the case where there is no connection between Caffeine and tap rate. To finally answer our question, we will calculate a p-value. 

@@ -53,10 +53,10 @@
   Hint: Enter - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
 
 - Class: cmd_question
-  Output: Now that we have the data we want, let's use a do loop to resample the data many times over to see how much the mean changes! Try it now - CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}
-  CorrectAnswer: CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}
-  AnswerTests: omnitest(correctExpr='CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}')
-  Hint: Enter - CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}
+  Output: Now that we have the data we want, let's use a do loop to resample the data many times over to see how much the mean changes! Try it now - CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}
+  CorrectAnswer: CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}
+  AnswerTests: omnitest(correctExpr='CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}')
+  Hint: Enter - CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}
 
 - Class: cmd_question
   Output: Lets take a look at what we created by looking at the first few rows of the CaffBoot object using the head function. 
@@ -68,10 +68,10 @@
   Output: If you look closely, you will see that R labeled the column of bootstrap means 'result'. Note, if you had typed do(1000)*mean(~Taps, data=resample(CaffGroup)) then R would have named the column of bootstrap means 'mean'.  Its always important to see how the column of bootstrap results are labeled!
 
 - Class: cmd_question
-  Output: You have created your first bootstrap distribution! You'll learn how to calculate a confidence interval using this distribution in the next section, but let's look at a histogram of the bootstrap means. Try it - histogram(~result, data=CaffBoot).
-  CorrectAnswer: histogram(~result, data=CaffBoot)
-  AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot)')
-  Hint: Try it - histogram(~result, data=CaffBoot)
+  Output: You have created your first bootstrap distribution! You'll learn how to calculate a confidence interval using this distribution in the next section, but let's look at a histogram of the bootstrap means. Try it - gf_histogram(~result, data=CaffBoot).
+  CorrectAnswer: gf_histogram(~result, data=CaffBoot)
+  AnswerTests: omnitest(correctExpr='gf_histogram(~result, data=CaffBoot)')
+  Hint: Try it - gf_histogram(~result, data=CaffBoot)
   
 - Class: text
   Output: We can see that our distribution is centered at the mean for the caffeine group, 248.3. We'll do some more analysis in the next section!
@@ -79,7 +79,7 @@
   
 - Class: mult_question
   Output: Good work! You've completed Pre-Lab 4.1. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
-  AnswerChoices: Finished !
+  AnswerChoices: Finished!
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint   

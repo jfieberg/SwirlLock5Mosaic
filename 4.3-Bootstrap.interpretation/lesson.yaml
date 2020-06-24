@@ -12,11 +12,14 @@
   FigureType: new
   
 - Class: cmd_question
-  Output: Let's add our interval to the histogram of bootstrap means to see where our interval falls relative to the rest of the bootstrap distribution. This time, we will plot the bootstrap means, and add vertical lines at our lower and upper confidence interval values. Try it - histogram(~result, data=CaffBoot, v=c(Hi,Lo))
-  CorrectAnswer: histogram(~result, data=CaffBoot, v=c(Hi,Lo))
-  AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot, v=c(Hi,Lo))')
-  Hint: Enter - histogram(~result, data=CaffBoot, v=c(Hi,Lo))
+  Output: Let's add our interval to the histogram of bootstrap means to see where our interval falls relative to the rest of the bootstrap distribution. This time, we will plot the bootstrap means, and add vertical lines at our lower and upper confidence interval values. Try it - gf_histogram(~result, data=CaffBoot) %>% gf_vline(xintercept=~c(247,249.6), data=NA)
+  CorrectAnswer: gf_histogram(~result, data=CaffBoot) %>% gf_vline(xintercept=~c(247,249.6), data=NA)
+  AnswerTests: omnitest(correctExpr='gf_histogram(~result, data=CaffBoot) %>% gf_vline(xintercept=~c(247,249.6), data=NA)')
+  Hint: Enter - gf_histogram(~result, data=CaffBoot) %>% gf_vline(xintercept=~c(247,249.6), data=NA)
 
+- Class: text
+  Output: the gf_vline() function allows us to add vertical lines. Similarly, there is a gf_hline() function for adding horizontal lines (using yintercept = ~). Remember that we use pipes ("%>%") to connect our two requests to R, gf_histogram and gf_vline in this case. Lastly, note that we could have ommitted the ~ after xintercept and also "data=NA"", but R would have sent a warning message related to mapping the xintercept in that case. 
+  
 - Class: mult_question
   Output: Consider the histogram and 95% confidence interval.  Which of the following is a plausible value for the parameter (the true mean tap rate for caffeinated students)?  
   AnswerChoices: 246.6;247.9;252.0
@@ -40,10 +43,10 @@
   Hint: Enter - HighConfidence
 
 - Class: cmd_question
-  Output: Now, let's plot the same histogram using this more confident interval. Enter this - histogram(~result, data=CaffBoot, v=c(HighConfidence$lower, HighConfidence$upper))
-  CorrectAnswer: histogram(~result, data=CaffBoot, v=c(HighConfidence$lower, HighConfidence$upper))
-  AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot, v=c(HighConfidence$lower, HighConfidence$upper))')
-  Hint: Enter - histogram(~result, data=CaffBoot, v=c(HighConfidence$lower, HighConfidence$upper))
+  Output: Now, let's plot the same histogram using this more confident interval. Enter this - gf_histogram(~result, data=CaffBoot) %>% gf_vline(xintercept=~lower, data=HighConfidence) %>% gf_vline(xintercept=~upper, data=HighConfidence) There are other ways to accompmlish this task more succinctly, but they require a bit more programming to make things work.
+  CorrectAnswer: gf_histogram(~result, data=CaffBoot) %>% gf_vline(xintercept=~lower, data=HighConfidence) %>% gf_vline(xintercept=~upper, data=HighConfidence)
+  AnswerTests: omnitest(correctExpr='gf_histogram(~result, data=CaffBoot) %>% gf_vline(xintercept=~lower, data=HighConfidence) %>% gf_vline(xintercept=~upper, data=HighConfidence)')
+  Hint: This requires quite a bit of code, we have to pipe together the histogram and then both upper and lower confidence intervals. Enter - gf_histogram(~result, data=CaffBoot) %>% gf_vline(xintercept=~lower, data=HighConfidence) %>% gf_vline(xintercept=~upper, data=HighConfidence)
 
 - Class: text
   Output: The 99.9% confidence interval is much wider! We are now more confident that our interval will capture the true parameter, but we pay the price of having a wider interval!
@@ -68,7 +71,7 @@
   
 - Class: mult_question
   Output: Good work! You've completed Pre-Lab 4.3. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
-  AnswerChoices: Finished !
+  AnswerChoices: Finished!
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint   

@@ -16,10 +16,10 @@
   Hint: Click on SandwichAnts.
 
 - Class: cmd_question
-  Output: Let's visualize the data using side-by-side boxplots so we can see if there are any differences in the number of ants on different types of sandwiches. Try it now using bwplot().
-  CorrectAnswer: bwplot(Ants~Filling, data=SandwichAnts)
-  AnswerTests: omnitest(correctExpr='bwplot(Ants~Filling, data=SandwichAnts)')
-  Hint: Remember the general format - goal(y~x, data=mydata). Our function is bwplot(), y is Ants...
+  Output: Let's visualize the data using side-by-side boxplots so we can see if there are any differences in the number of ants on different types of sandwiches. Try it now using gf_boxplot().
+  CorrectAnswer: gf_boxplot(Ants~Filling, data=SandwichAnts)
+  AnswerTests: omnitest(correctExpr='gf_boxplot(Ants~Filling, data=SandwichAnts)')
+  Hint: Remember the general format - goal(y~x, data=mydata). Our function is gf_boxplot(), y is Ants...
 
 - Class: text
   Output: Superficially, it looks like more ants flocked to the Ham and Pickles sandwich chunks than the other two. Let's use an analysis of variance test to investigate this.

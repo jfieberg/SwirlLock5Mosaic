@@ -44,16 +44,16 @@
   Hint: Look at the arguments in the help file
 
 - Class: cmd_question
-  Output: "Lastly, we can visualize confidence bands and prediction bands (i.e. confidence and prediction intervals for the full range of meal sizes in our data) using:  xyplot(temp.change~meal.size, data=Rattlesnakes, panel=panel.lmbands). Try it!"
-  CorrectAnswer:  xyplot(temp.change~meal.size, data=Rattlesnakes, panel=panel.lmbands)
-  AnswerTests: omnitest(correctExpr='xyplot(temp.change~meal.size, data=Rattlesnakes, panel=panel.lmbands)')
-  Hint: Enter -   xyplot(temp.change~meal.size, data=Rattlesnakes, panel=panel.lmbands)
+  Output: Lastly, we can visualize confidence bands and prediction bands (i.e. confidence and prediction intervals for the full range of meal sizes in our data) using -  gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm(interval = "prediction", fill = "DarkBlue") %>% gf_lm(interval = "confidence", fill = "DarkRed") Try this!
+  CorrectAnswer:  gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm(interval = "prediction", fill = "DarkBlue") %>% gf_lm(interval = "confidence", fill = "DarkRed")
+  AnswerTests: omnitest(correctExpr='gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm(interval = "prediction", fill = "DarkBlue") %>% gf_lm(interval = "confidence", fill = "DarkRed")')
+  Hint: Enter -   gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm(interval = "prediction", fill = "DarkBlue") %>% gf_lm(interval = "confidence", fill = "DarkRed")
 
 - Class: mult_question
   Output: Which set of lines gives use prediction intervals?
-  AnswerChoices: blue; pink; green
-  CorrectAnswer: pink
-  AnswerTests: omnitest(correctVal='pink')
+  AnswerChoices: blue; red; green
+  CorrectAnswer: blue
+  AnswerTests: omnitest(correctVal='blue')
   Hint: Which interval is bigger, prediction or confidence interval?
     
 - Class: text
@@ -62,7 +62,7 @@
   
 - Class: mult_question
   Output: Good work! You've completed Pre-Lab 9.3. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
-  AnswerChoices: Finished !
+  AnswerChoices: Finished!
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint   

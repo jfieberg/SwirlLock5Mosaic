@@ -45,10 +45,10 @@
   Output: Favstats is useful for looking at a single quantatitive variable, but what if we want to look at the relationship between two different quantitative variables? For example, what if we want to know whether sugary cereals are also higher in calories?
 
 - Class: cmd_question
-  Output: In this situation, a quick way to visualize the data would be to use a scatterplot (or an xy-plot, as some call it). Try it now using our above example - xyplot(Sugars~Calories, data=Cereal)
-  CorrectAnswer: xyplot(Sugars~Calories, data=Cereal)
-  AnswerTests: any_of_exprs('xyplot(Sugars~Calories, data=Cereal)', 'xyplot(Calories~Sugar, data=Cereal)')
-  Hint: Enter - xyplot(Sugars~Calories, data=Cereal)
+  Output: In this situation, a quick way to visualize the data would be to use a scatterplot. We can create a scatterplot using the gf_point() function. Try it now using our above example - gf_point(Sugars~Calories, data=Cereal)
+  CorrectAnswer: gf_point(Sugars~Calories, data=Cereal)
+  AnswerTests: any_of_exprs('gf_point(Sugars~Calories, data=Cereal)', 'gf_point(Calories~Sugars, data=Cereal)')
+  Hint: Enter - gf_point(Sugars~Calories, data=Cereal)
   
 - Class: mult_question
   Output: Looking at this graph, what can we say about the relationship between Sugars and Calories in this dataset?
@@ -63,7 +63,7 @@
   
 - Class: mult_question
   Output: Good work! You've completed Pre-Lab 3.2. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!
-  AnswerChoices: Finished !
+  AnswerChoices: Finished!
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint   
