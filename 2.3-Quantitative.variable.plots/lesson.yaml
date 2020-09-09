@@ -40,7 +40,7 @@
   Output: Great job. Using the density plot we just created, which GPA was most frequent for the students who took the survey?
   AnswerChoices: 2.0;3.2;4.0
   CorrectAnswer: 3.2
-  AnswerTests: omnitest(correctVal='3.5')
+  AnswerTests: omnitest(correctVal='3.2')
   Hint: Again, we're looking for the peak of the data!
 
 - Class: cmd_question
