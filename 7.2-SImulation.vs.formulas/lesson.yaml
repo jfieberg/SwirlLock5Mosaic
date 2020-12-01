@@ -49,10 +49,10 @@
   Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of approximately (52, 60). We are 95% sure that the mean number of hotdogs needed to win the contest is between 52 and  60! Thats a lot of hot dogs!
 
 - Class: cmd_question
-  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, sample mean +/- t* x SE, where SE = s / sqrt(n).  Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE.  Lets calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10) (since there are 10 cases in the dataframe).
-  CorrectAnswer: formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10)
-  AnswerTests: omnitest(correctExpr='formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10)')
-  Hint: Enter - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10)
+  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, sample mean +/- t* x SE, where SE = s / sqrt(n).  Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE.  Lets calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(14) (since there are 14 cases in the dataframe).
+  CorrectAnswer: formSE <- sd(~HotDogs, data=HotDogs)/sqrt(14)
+  AnswerTests: omnitest(correctExpr='formSE <- sd(~HotDogs, data=HotDogs)/sqrt(14)')
+  Hint: Enter - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(14)
 
 - Class: cmd_question
   Output: We need two more things to make a confidence interval. We need the mean number of hotdogs in our sample data and the t* for a 95% confidence interval. Let's get the mean first - call it formMean (for formula mean), formMean<-mean(~HotDogs, data=HotDogs).
@@ -62,15 +62,15 @@
 
 - Class: exact_question
   Output: Lastly, we need a t* value for our 95% confidence interval. If df = n-1, how many degrees of freedom should our t-distribution have?
-  CorrectAnswer: 9
-  AnswerTests: omnitest(correctExpr='9')
-  Hint: Remember, n=10 (and df = n-1). 
+  CorrectAnswer: 13
+  AnswerTests: omnitest(correctExpr='13')
+  Hint: Remember, n=14 (and df = n-1). 
 
 - Class: cmd_question
-  Output: Exactly. So, we can get t* (and store it in an object called tstars) by using the xqt function as follows - tstars <- xqt(p=c(.025, .975), df=9)
-  CorrectAnswer: tstars <- xqt(p=c(.025, .975), df=9)
-  AnswerTests: omnitest(correctExpr='tstars <- xqt(p=c(.025, .975), df=9)')
-  Hint: Enter -  tstars <- xqt(p=c(.025, .975), df=9)
+  Output: Exactly. So, we can get t* (and store it in an object called tstars) by using the xqt function as follows - tstars <- xqt(p=c(.025, .975), df=13)
+  CorrectAnswer: tstars <- xqt(p=c(.025, .975), df=13)
+  AnswerTests: omnitest(correctExpr='tstars <- xqt(p=c(.025, .975), df=13)')
+  Hint: Enter -  tstars <- xqt(p=c(.025, .975), df=13)
 
 - Class: cmd_question
   Output: Let's put it all together to see our formula-produced confidence interval. Try it out now - formCI <- formMean + tstars*formSE
