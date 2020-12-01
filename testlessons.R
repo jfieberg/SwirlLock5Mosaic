@@ -3,7 +3,8 @@ library(swirlify)
 # http://swirlstats.com/instructors.html
 set_lesson("4.2-Std.err.and.confints/lesson.yaml") # Set the lesson directly
 set_lesson("1.1-Intro.to.R")
-demo_lesson()
+set_lesson("7.2-SImulation.vs.formulas")
+demo_lesson()gw
 
 #  I'm on 3.1...
 
