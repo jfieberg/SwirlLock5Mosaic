@@ -20,7 +20,7 @@
   Hint: The notation will look weird at first. Just try this out - do(100)*{2*2}
 
 - Class: text
-  Output: You'll see that using do(100)* in front of that expression quite literally 'did' it 100 times. This works for anything you put inside of the parentheses to the right. Now, you wouldn't have to go to college, because your payout is limited only by how huge you make your do loop.
+  Output: You'll see that using do(100)* in front of that expression quite literally 'did' it 100 times. This works for anything you put inside of the braces to the right. Now, you wouldn't have to go to college, because your payout is limited only by how huge you make your do loop.
 
 - Class: cmd_question
   Output: Let's use a more realistic and less lucrative example. Just so we have something to work with, let's generate some data. We'll generate 15 numbers, pulled at random from a normal distribution (this is a bell-shaped distribution that depends on two parameters, a mean and a standard deviation - you will learn more about the normal distribution in Chapter 5!). We're going to pretend that these numbers are the canopy heights of trees in rural Panama. Enter - bigtrees<-data.frame(canopy=rnorm(n=15,mean=1000,sd=200)). This will create a dataset with a single variable, canopy, and 15 observations.
@@ -41,7 +41,7 @@
   Output: Calculating the mean for each of several resampled groups of observations would be really time consuming if we had to do this one by one. Fortunately, we won't have to do that, because we can use our newest tool - the do loop. Try it now by taking the mean of 10 resamples - do(10)*{mean(~canopy, data=resample(bigtrees))}
   CorrectAnswer: do(10)*{mean(~canopy, data=resample(bigtrees))}
   AnswerTests: omnitest(correctExpr='do(10)*{mean(~canopy, data=resample(bigtrees))}')
-  Hint: The toughest thing is getting the parentheses right! Enter - do(10)*{mean(~canopy, data=resample(bigtrees))}
+  Hint: The toughest thing is getting the braces right! Enter - do(10)*{mean(~canopy, data=resample(bigtrees))}
 
 
 - Class: text

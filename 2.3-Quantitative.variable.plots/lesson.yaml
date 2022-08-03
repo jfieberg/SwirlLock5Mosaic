@@ -24,11 +24,11 @@
   Hint: Enter the following code exactly, gf_histogram(~SAT, data=StudentSurvey)
 
 - Class: mult_question
-  Output: Using the histogram we just generated, which SAT score is most common amongst the survey takers? Note - the y-axis, density, refers to frequency of SAT scores in each bin divided by how many survey takers there were (362).
+  Output: Using the histogram we just generated, which SAT score is most common amongst the survey takers? 
   AnswerChoices: about 1000;about 1200;about 1400
   CorrectAnswer: about 1200
   AnswerTests: omnitest(correctVal='about 1200')
-  Hint: Since we are looking at frequency (how many of the students have a SAT score that fall into each bin), we are looking for the highest bar in the plot. 
+  Hint: Since we are looking at the frequency (how many of the students have a SAT score that fall into each bin), we are looking for the highest bar in the plot. 
 
 - Class: cmd_question
   Output: Another common way to visualize a single quantitative variable is to use a density plot (essentially, a smooth histogram). We'll use the same format as a histogram, except this time, we use the gf_density() function. Try it using the GPA variable - gf_density(~GPA, data=StudentSurvey).

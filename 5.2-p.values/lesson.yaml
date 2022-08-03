@@ -24,7 +24,7 @@
   Hint: Enter - CaffDiff
   
 - Class: cmd_question
-  Output: If you didn't already know which group had the larger mean, you might not know how to interpret this value, diffmean. It is always a good idea to use the mean() function along with diffmean. Try it now, just replace diffmean with mean in the previous code.
+  Output: If you didn't already know which group had the larger mean, you might not know how to interpret this value, diffmean. It is always a good idea to use the mean() function along with diffmean. So, lets modify our code to use mean instead of diffmean (but do NOT assign the new result to the object, CaffDiff). 
   CorrectAnswer: mean(Taps~Group, data=CaffeineTaps)
   AnswerTests: omnitest(correctExpr='mean(Taps~Group, data=CaffeineTaps)')
   Hint: Enter - mean(Taps~Group, data=CaffeineTaps)
