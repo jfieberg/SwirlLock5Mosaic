@@ -18,6 +18,12 @@
   FigureType: new
 
 - Class: cmd_question
+  Output: I've put a dataset in your workspace (the top right panel) called legos. To look at this data set, simply click on the name legos in the top right corner panel (your workspace).
+  CorrectAnswer: View(legos)
+  AnswerTests: omnitest(correctExpr='View(legos)')
+  Hint: No need to type anything, just click the word legos in the top right corner panel (your workspace).
+
+- Class: cmd_question
   Output: I've put a dataset in your workspace (the top right panel) called RetailSales. To look at this table, simply click on the name RetailSales in the top right corner panel (your workspace).
   CorrectAnswer: View(RetailSales)
   AnswerTests: omnitest(correctExpr='View(RetailSales)')

@@ -4,7 +4,14 @@
       # throughout the lesson.
 
 swirl_options(swirl_logging = TRUE)
-suppressMessages(library(Lock5Data))
-suppressMessages(library(mosaic))
+suppressPackageStartupMessages(library(Lock5Data))
+suppressPackageStartupMessages(library(mosaic))
 
+.get_course_path <- function(){
+  tryCatch(swirl:::swirl_courses_dir(),
+           error = function(c) {file.path(find.package("swirl"),"Courses")}
+  )
+}
+
+legos <- read.csv(file.path(.get_course_path(), "SwirlLock5Mosaic", "1.3-Mean,max,and.min", "lego_population.csv"))
  
