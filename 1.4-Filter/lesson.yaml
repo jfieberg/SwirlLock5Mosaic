@@ -7,25 +7,25 @@
   Version: 2.4.2
 
 - Class: text
-  Output: Almost done with Pre-lab 1! In the last section, we learned how to take the mean, max and min of some sales data. In this section, we'll use the filter function to manipulate our data. 
+  Output: Almost done with Pre-lab 1! In the last section, we learned how to find the mean, max and min number of pieces in the lego data set. In this section, we'll use the filter function to manipulate our data. 
 
 - Class: cmd_question
-  Output: Let's say that, for some reason, we only want to look at data from 2007. We can use the function filter() to filter out all of the years we don't want! Try it now using this code - filter(RetailSales, Year==2007)
-  CorrectAnswer: filter(RetailSales, Year==2007)
-  AnswerTests: omnitest(correctExpr='filter(RetailSales, Year==2007)')
-  Hint: Using the code - filter(RetailSales, Year==2007) - we are telling R to filter the RetailSales dataset, and only select Years that are equal to 2007.
+  Output: What if we wanted to see all of the cases that have just 1 lego piece.  We could use the function filter() to filter out all cases that meet this criterion! Try it now using this code - filter(legos, pieces==1) (note the double = sign!)
+  CorrectAnswer: filter(legos, pieces==1)
+  AnswerTests: omnitest(correctExpr='filter(legos, pieces==1)')
+  Hint: Using the code - filter(legos, pieces==1) - we are telling R to filter the legos dataset, and only select cases where the number of pieces is equal to 1.
 
 - Class: cmd_question
-  Output: You'll see that R printed only the year 2007 on the console! This isn't specific to Year, we can do this with the Month variable too. Let's try it with December - filter(RetailSales, Month=='Dec')
-  CorrectAnswer: filter(RetailSales, Month=='Dec')
-  AnswerTests: any_of_exprs('filter(RetailSales, Month==\'Dec\')', 'filter(RetailSales, Month==\"Dec\")')
-  Hint: It looks similar to the last, except that instead of looking for the year 2007, we're looking for the month of December - filter(RetailSales, Month=='Dec')
+  Output: We see that there are 12 cases in the dataset that have a single lego piece!  What if we wanted to select all cases that have the 'Classic' theme?  In this case, we would use, filter(legos, theme=='Classic')
+  CorrectAnswer: filter(legos, theme=='Classic')
+  AnswerTests: any_of_exprs('filter(legos, theme==\'Classic\')', 'filter(legos, theme==\"Classic\")')
+  Hint: Make sure to use a == and that Classic starts with a capitol C, filter(legos, theme=='Classic')
 
 - Class: cmd_question
-  Output: Now your turn - filter our dataset RetailSales for the month of May, using the same format from the last prompt!
-  CorrectAnswer: filter(RetailSales, Month=='May')
-  AnswerTests: any_of_exprs('filter(RetailSales, Month==\'May\')', 'filter(RetailSales, Month==\"May\")')
-  Hint: The code is going to look *very* similar to the last prompt, in which we chose the month of december. All we need to do is change 'Dec' to 'May'!
+  Output: Now your turn - filter the data set to include only the cases that cost over 6 dollars in price.
+  CorrectAnswer: filter(legos, price > 6)
+  AnswerTests: any_of_exprs('filter(legos, price > 6)')
+  Hint: We need to use the price variable and indicate that we are interested in observations where price is greater than 6, filter(legos, price > 6)
 
 - Class: text
   Output: Great work! Using filter, we can chose specific rows of data from a dataset - you'll use this for analysis purposes in lab.
