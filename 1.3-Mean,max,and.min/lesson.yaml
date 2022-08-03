@@ -22,33 +22,27 @@
   CorrectAnswer: View(legos)
   AnswerTests: omnitest(correctExpr='View(legos)')
   Hint: No need to type anything, just click the word legos in the top right corner panel (your workspace).
+ 
+- Class: cmd_question
+  Output: This data set contains information on lego sets that were for sale between January 1 2018 and September 11, 2020. If we want to find the mean number of lego pieces in a box set, we'd follow the format from above and use - mean(~pieces, data=legos)
+  CorrectAnswer: mean(~pieces, data=legos)
+  AnswerTests: omnitest(correctExpr='mean(~pieces, data=legos)')
+  Hint: If you received an error, type this in exactly as it appears, mean(~pieces, data=legos)
 
 - Class: cmd_question
-  Output: I've put a dataset in your workspace (the top right panel) called RetailSales. To look at this table, simply click on the name RetailSales in the top right corner panel (your workspace).
-  CorrectAnswer: View(RetailSales)
-  AnswerTests: omnitest(correctExpr='View(RetailSales)')
-  Hint: No need to type anything, just click the word RetailSales in the top right corner panel (your workspace).
+  Output: So now we see that the average number of lego pieces in a box set is just over 389. Let's see how many pieces are in the smallest set contained in the dataset. Using the same format, we change the function from mean() to min(). Enter the following - min(~pieces, data=legos).
+  CorrectAnswer: min(~pieces, data=legos)
+  AnswerTests: omnitest(correctExpr='min(~pieces, data=legos)')
+  Hint: Just type this in exactly, min(~pieces, data=legos)
 
 - Class: cmd_question
-  Output: This is a table of monthly retail sales for the US economy for each month from 2002 to 2011, in billions of dollars. Let's say, for example, we want to find the mean amount of monthly retail sales using this data. To do this, we'd follow the format from above and enter the following - mean(~Sales, data=RetailSales)
-  CorrectAnswer: mean(~Sales, data=RetailSales)
-  AnswerTests: omnitest(correctExpr='mean(~Sales, data=RetailSales)')
-  Hint: R in this case will work with or without the ~, but it is best to get into the habitat of using the ~. If you received an error, type this in exactly as it appears - mean(~Sales, data=RetailSales)
-
-- Class: cmd_question
-  Output: So now we see that the average monthly sales in retail are about 300 billion dollars. Let's see what the lowest amount of monthly sales was using our dataset. Using the same format, we change the function from mean() to min(). Enter the following - min(~Sales, data=RetailSales).
-  CorrectAnswer: min(~Sales, data=RetailSales)
-  AnswerTests: omnitest(correctExpr='min(~Sales, data=RetailSales)')
-  Hint: Don't worry about the first part yet (~Sales), we'll get to what this means during lab. Just type this in exactly - min(~Sales, data=RetailSales)
-
-- Class: cmd_question
-  Output: So the worst month of sales over the course of 2002-2011 was 214 billion dollars - still not too shabby. Now, lastly, let's find out what the best month of sales was over this time! Using the function max() and the format we used in the previous two functions, give it a try. 
-  CorrectAnswer: max(~Sales, data=RetailSales)
-  AnswerTests: omnitest(correctExpr='max(~Sales, data=RetailSales)')
-  Hint: In order to get the mean, we used - mean(~Sales, data=RetailSales). To get the minimum, we used -  min(~Sales, data=RetailSales). You'll notice that nothing changes but the name of the function! This time, we're using max() instead of mean() or min().
+  Output: OK, clearly the dataset includes at least 1 case where there is a single lego piece for sale.   Now, lastly, let's find the case that contains the most lego pieces.  This time we will use the function max() and the format we used in the previous two functions, give it a try. 
+  CorrectAnswer: max(~pieces, data=legos)
+  AnswerTests: omnitest(correctExpr='max(~pieces, data=legos)')
+  Hint: In order to get the mean, we used - mean(~pieces, data=legos). To get the minimum, we used -  min(~pieces, data=legos). You'll notice that nothing changes but the name of the function! This time, we're using max() instead of mean() or min().
 
 - Class: text
-  Output: Great work - We now know that over the course of 2002 and 2011, the United States averaged about 300 billion dollars in retail sales monthly, but some months were as low as 214 billion and some were as high as 394 billion!
+  Output: Great work - We now know that the lego data set contains cases that have between 1 and 6020 pieces, with a mean of 389.  In the next lesson, we will learn how to select the cases that meet a certain criterion (e.g., all cases that have more than 1 piece). 
 
   
 - Class: mult_question

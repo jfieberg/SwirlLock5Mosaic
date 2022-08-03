@@ -14,4 +14,4 @@ suppressPackageStartupMessages(library(mosaic))
 }
 
 legos <- read.csv(file.path(.get_course_path(), "SwirlLock5Mosaic", "1.3-Mean,max,and.min", "lego_population.csv"))
- 
+legos <- legos[is.na(legos$pieces)!=TRUE,] 
