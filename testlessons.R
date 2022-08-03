@@ -1,6 +1,7 @@
 library(swirlify)
 
 # http://swirlstats.com/instructors.html
+set_lesson("1.3-Mean,max,and.min")
 set_lesson("4.2-Std.err.and.confints/lesson.yaml") # Set the lesson directly
 set_lesson("1.1-Intro.to.R")
 set_lesson("7.2-SImulation.vs.formulas")
