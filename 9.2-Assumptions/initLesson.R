@@ -3,8 +3,8 @@
       # the user's working directory and thus be accessible to them
       # throughout the lesson.
 
-swirl_options(swirl_logging = TRUE)
-suppressMessages(library(Lock5Data))
-suppressMessages(library(mosaic))
+swirl_options(swirl_logging = TRUE) 
+suppressWarnings(suppressMessages(library(Lock5Data)))
+suppressWarnings(suppressMessages(library(mosaic)))
 suppressMessages(data("StudentSurvey"))
 invisible(StudentSurvey)

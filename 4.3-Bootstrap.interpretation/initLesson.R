@@ -4,8 +4,8 @@
       # throughout the lesson.
 
 swirl_options(swirl_logging = TRUE)
-suppressMessages(library(Lock5Data))
-suppressMessages(library(mosaic))
+suppressWarnings(suppressMessages(library(Lock5Data)))
+suppressWarnings(suppressMessages(library(mosaic)))
 .get_course_path <- function(){
   tryCatch(swirl:::swirl_courses_dir(),
            error = function(c) {file.path(find.package("swirl"),"Courses")}

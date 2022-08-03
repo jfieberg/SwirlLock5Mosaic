@@ -4,8 +4,8 @@
       # throughout the lesson.
 
 swirl_options(swirl_logging = TRUE)
-suppressMessages(library(Lock5Data))
-suppressMessages(library(mosaic))
+suppressWarnings(suppressMessages(library(Lock5Data)))
+suppressWarnings(suppressMessages(library(mosaic)))
 data("CaffeineTaps")
 invisible(CaffeineTaps)
 set.seed(1231235657) 

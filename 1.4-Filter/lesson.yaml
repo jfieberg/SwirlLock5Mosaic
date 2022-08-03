@@ -22,7 +22,7 @@
   Hint: Make sure to use a == and that Classic starts with a capitol C, filter(legos, theme=='Classic')
 
 - Class: cmd_question
-  Output: Now your turn - filter the data set to include only the cases that cost over 6 dollars in price.
+  Output: Now your turn - filter the data set to include only the cases that cost over 6 dollars in price. I.e., we want the variable price > 6.
   CorrectAnswer: filter(legos, price > 6)
   AnswerTests: any_of_exprs('filter(legos, price > 6)')
   Hint: We need to use the price variable and indicate that we are interested in observations where price is greater than 6, filter(legos, price > 6)

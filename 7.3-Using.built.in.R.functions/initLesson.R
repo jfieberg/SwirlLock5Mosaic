@@ -4,7 +4,7 @@
       # throughout the lesson.
 
 swirl_options(swirl_logging = TRUE)
-suppressMessages(library(Lock5Data))
-suppressMessages(library(mosaic))
-suppressMessages(library(abd))
-require("base64enc")
+suppressWarnings(suppressMessages(library(Lock5Data)))
+suppressWarnings(suppressMessages(library(mosaic)))
+suppressWarnings(suppressMessages(library(abd))) 
+suppressWarnings(suppressMessages(require("base64enc")))
