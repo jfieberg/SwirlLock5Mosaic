@@ -35,7 +35,7 @@
   Output: You may have noticed something there. Let's break this down to two different formulas - H0 will represent the Null Hypothesis, HA will represent the Alternative Hypothesis, and diffmean will represent the difference in mean tap rates between the two groups.  
 
 - Class: mult_question
-  Output: Our two hypotheses are as follows. H0 -> diffmean = 0, HA -> diffmean != (not equal) 0. Just by looking at these two equations, which has more possibilities of being true?
+  Output: Our two hypotheses are as follows. H0 -> diffmean = 0, HA -> diffmean != (not equal) 0. Just by looking at these two equations, which hypothesis covers a wider range of possibilities? 
   AnswerChoices: HA;H0;They're the same
   CorrectAnswer: HA
   AnswerTests: omnitest(correctVal='HA')

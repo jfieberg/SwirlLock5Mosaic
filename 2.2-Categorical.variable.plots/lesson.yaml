@@ -42,7 +42,7 @@
   Output: Let's consider now bargraphs with two categorical variables. Consider the variable Award, which represents which of three awards the student would like to win in their lifetime - an Academy Award, a Nobel Prize, or an Olympic Medal. 
 
 - Class: cmd_question
-  Output: Lets compare answers between Males and Females. We can greate a plot with a separate panel for Males and Females using a "|" - gf_bar(~Award|Sex, data=StudentSurvey). Try it!
+  Output: Lets compare answers between Males and Females (ideally, we would consider a more inclusive set of gender identities but this dataset is limited to Males and Females!). We can greate a plot with a separate panel for Males and Females using a "|" - gf_bar(~Award|Sex, data=StudentSurvey). Try it!
   CorrectAnswer: gf_bar(~Award|Sex, data=StudentSurvey)
   AnswerTests: any_of_exprs('gf_bar(~Award|Sex, data=StudentSurvey)')
   Hint: Enter gf_bar(~Award|Sex, data=StudentSurvey). This tells R that we want to break down the data by Sex. 

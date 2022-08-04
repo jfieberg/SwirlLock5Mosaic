@@ -10,22 +10,22 @@
   Output: So, we know how to calculate confidence intervals using both simulation (bootstrapping) and formulas. Let's do both on a given dataset, and see how they compare to one another.
 
 - Class: figure
-  Output: Every Fourth of July, Nathan's Famous in New York City holds a hot dog eating contest, in which contestants try to eat as many hot dogs (with buns) as possible in ten minutes. The data set HotDogs contains the winning number of hot dogs for each year from 2002-2011.
+  Output: Every Fourth of July, Nathan's Famous in New York City holds a hot dog eating contest, in which contestants try to eat as many hot dogs (with buns) as possible in ten minutes. The data set HotDogs2019 contains the winning number of hot dogs for each year from 2002-2019.
   Figure: caffeine.R
   FigureType: new
 
 
 - Class: cmd_question
-  Output: I've loaded this dataset into R from the Lock5Package.  Lets take a look at this dataset by clicking on it in the upper rigth panel.
-  CorrectAnswer: View(HotDogs)
-  AnswerTests: omnitest(correctExpr='View(HotDogs)')
-  Hint: You can also type View(HotDogs) with a capitol V
+  Output: I've loaded this dataset into R from the Lock5Package.  Lets take a look at this dataset by clicking on it in the upper right panel.
+  CorrectAnswer: View(HotDogs2019)
+  AnswerTests: omnitest(correctExpr='View(HotDogs2019)')
+  Hint: You can also type View(HotDogs2019) with a capitol V
 
 - Class: cmd_question
-  Output: Let's first create a bootstrap distribution for the mean number of hot dogs needed to win the contest (in this case, our parameter is the "population mean" or, the average number of hot dogs need to win if you looked at ALL past and future years of the contest). Try it now, enter - Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}.
-  CorrectAnswer: Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}
-  AnswerTests: omnitest(correctExpr='Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}')
-  Hint: Type Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}
+  Output: Let's first create a bootstrap distribution for the mean number of hot dogs needed to win the contest (in this case, our parameter is the "population mean" or, the average number of hot dogs need to win if you looked at ALL past and future years of the contest). Try it now, enter - Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}.
+  CorrectAnswer: Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}
+  AnswerTests: omnitest(correctExpr='Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}')
+  Hint: Type Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}
 
 - Class: cmd_question
   Output:  Lets look at our bootstrap means using the head function.
@@ -46,31 +46,31 @@
   Hint: Enter - bootCI
 
 - Class: text
-  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of approximately (54, 63). We are 95% sure that the mean number of hotdogs needed to win the contest is between 52 and  60! Thats a lot of hot dogs!
+  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of approximately (57.6, 65). We are 95% sure that the mean number of hotdogs needed to win the contest is between 57.6 and  65! Thats a lot of hot dogs!
 
 - Class: cmd_question
-  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, sample mean +/- t* x SE, where SE = s / sqrt(n).  Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE.  Lets calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(14) (since there are 14 cases in the dataframe).
-  CorrectAnswer: formSE <- sd(~HotDogs, data=HotDogs)/sqrt(14)
-  AnswerTests: omnitest(correctExpr='formSE <- sd(~HotDogs, data=HotDogs)/sqrt(14)')
-  Hint: Enter - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(14)
+  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, sample mean +/- t* x SE, where SE = s / sqrt(n).  Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE.  Lets calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18) (since there are 18 cases in the dataframe).
+  CorrectAnswer: formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)
+  AnswerTests: omnitest(correctExpr='formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)')
+  Hint: Enter - formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)
 
 - Class: cmd_question
-  Output: We need two more things to make a confidence interval. We need the mean number of hotdogs in our sample data and the t* for a 95% confidence interval. Let's get the mean first - call it formMean (for formula mean), formMean<-mean(~HotDogs, data=HotDogs).
-  CorrectAnswer: formMean <- mean(~HotDogs, data=HotDogs)
-  AnswerTests: omnitest(correctExpr='formMean <- mean(~HotDogs, data=HotDogs)')
-  Hint: Enter - formMean <- mean(~HotDogs, data=HotDogs)
+  Output: We need two more things to make a confidence interval. We need the mean number of hotdogs in our sample data and the t* for a 95% confidence interval. Let's get the mean first - call it formMean (for formula mean), formMean<-mean(~HotDogs, data=HotDogs2019).
+  CorrectAnswer: formMean <- mean(~HotDogs, data=HotDogs2019)
+  AnswerTests: omnitest(correctExpr='formMean <- mean(~HotDogs, data=HotDogs2019)')
+  Hint: Enter - formMean <- mean(~HotDogs, data=HotDogs2019)
 
 - Class: exact_question
   Output: Lastly, we need a t* value for our 95% confidence interval. If df = n-1, how many degrees of freedom should our t-distribution have?
-  CorrectAnswer: 13
-  AnswerTests: omnitest(correctExpr='13')
-  Hint: Remember, n=14 (and df = n-1). 
+  CorrectAnswer: 17
+  AnswerTests: omnitest(correctExpr='17')
+  Hint: Remember, n=18 (and df = n-1). 
 
 - Class: cmd_question
-  Output: Exactly. So, we can get t* (and store it in an object called tstars) by using the xqt function as follows - tstars <- xqt(p=c(.025, .975), df=13)
-  CorrectAnswer: tstars <- xqt(p=c(.025, .975), df=13)
-  AnswerTests: omnitest(correctExpr='tstars <- xqt(p=c(.025, .975), df=13)')
-  Hint: Enter -  tstars <- xqt(p=c(.025, .975), df=13)
+  Output: Exactly. So, we can get t* (and store it in an object called tstars) by using the xqt function as follows - tstars <- xqt(p=c(.025, .975), df=17)
+  CorrectAnswer: tstars <- xqt(p=c(.025, .975), df=17)
+  AnswerTests: omnitest(correctExpr='tstars <- xqt(p=c(.025, .975), df=17)')
+  Hint: Enter -  tstars <- xqt(p=c(.025, .975), df=17)
 
 - Class: cmd_question
   Output: Let's put it all together to see our formula-produced confidence interval. Try it out now - formCI <- formMean + tstars*formSE

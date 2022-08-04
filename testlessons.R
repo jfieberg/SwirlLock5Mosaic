@@ -12,7 +12,8 @@ demo_lesson()gw
 # cntrl + shift+f10
 install.packages("swirl")
 library(swirl)
-uninstall_all_courses(force = FALSE)
+uninstall_all_courses(force = TRUE)
 #install_course_github("GondekNP", course_name = "FW4001" )
-swirl()
+
 install_course_github("jfieberg", course_name = "SwirlLock5Mosaic" )
+swirl()

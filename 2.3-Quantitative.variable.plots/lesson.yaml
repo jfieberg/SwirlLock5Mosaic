@@ -31,7 +31,7 @@
   Hint: Since we are looking at the frequency (how many of the students have a SAT score that fall into each bin), we are looking for the highest bar in the plot. 
 
 - Class: cmd_question
-  Output: Another common way to visualize a single quantitative variable is to use a density plot (essentially, a smooth histogram). We'll use the same format as a histogram, except this time, we use the gf_density() function. Try it using the GPA variable - gf_density(~GPA, data=StudentSurvey).
+  Output: Another common way to visualize a single quantitative variable is to use a density plot (essentially, a smooth histogram). We'll use the same format as a histogram, except this time, we use the gf_density() function. Try it using the GPA variable - gf_density(~GPA, data=StudentSurvey). Note, you may see a warning message that R removed observations with non-finite values (that is OK, just ignore this message!).
   CorrectAnswer: gf_density(~GPA, data=StudentSurvey)
   AnswerTests: omnitest(correctExpr='gf_density(~GPA, data=StudentSurvey)')
   Hint: Don't forget the ~.  Try this, gf_density(~GPA, data=StudentSurvey)
@@ -50,7 +50,7 @@
   Hint: Remember to use the ~ in front of Piercings! Try it - gf_density(~Piercings | Smoke, data=StudentSurvey)
 
 - Class: cmd_question
-  Output: This plot looks a little strange since the number of piercings can only take on integer values (e.g., 0, 1, 2, ...). In addition, it would be easier to compare the two groups if the distributions were overlayed within the same graph. We can do this using the fill argument. Try it out now -  gf_density(~Piercings, fill=~Smoke, data=StudentSurvey)
+  Output: This plot looks a little strange since the number of piercings can only take on integer values (e.g., 0, 1, 2, ...). In truth, it would be better to look at a histogram of the data. Also, it would be easier to compare the two groups if the distributions were overlayed within the same graph. We can do this using the fill argument. Try it out now -  gf_density(~Piercings, fill=~Smoke, data=StudentSurvey)
   CorrectAnswer:  gf_density(~Piercings, fill=~Smoke, data=StudentSurvey)
   AnswerTests: omnitest(correctExpr=' gf_density(~Piercings, fill=~Smoke, data=StudentSurvey)')
   Hint: Remember to use the ~ in front of Piercings and also Smoke! Try it -  gf_density(~Piercings, fill=~Smoke, data=StudentSurvey)

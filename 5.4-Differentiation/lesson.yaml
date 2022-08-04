@@ -63,7 +63,7 @@
 
 
 - Class: mult_question
-  Output: Let's say you calculate a p-value for this test and it is 0.002.  What does this p-value? 
+  Output: Let's say you calculate a p-value for this test and it is 0.002.  What does this p-value represent? 
   AnswerChoices: the probability that the null hypothesis is true; 	the probability that the alternative hypothesis is true; the probability, when the null hypothesis is true, of obtaining a sample as extreme as (or more extreme than) the observed sample; the probability, when the alternative hypothesis is true, of obtaining a sample as extreme as (or more extreme than) the observed sample
   CorrectAnswer: the probability, when the null hypothesis is true, of obtaining a sample as extreme as (or more extreme than) the observed sample
   AnswerTests: omnitest(correctVal='the probability, when the null hypothesis is true, of obtaining a sample as extreme as (or more extreme than) the observed sample')
