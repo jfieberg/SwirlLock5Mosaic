@@ -71,7 +71,7 @@
     
 
 - Class: figure
-  Output: These data are again contained in the abd library. I have loaded them for you (as you will see in the upper right panel)
+  Output: These data (Blackbirds) are again contained in the abd library. I have loaded them for you (as you will see in the upper right panel)
   Figure: blackb.R
   FigureType: new
 
@@ -96,7 +96,7 @@
 
 - Class: text
   Output: Lastly, lets look at an example using prop.test.  For this example, lets consider the StudentSurvey dataset again.  Lets
-    ask if more males or females smoke?
+    ask if more males or females smoke (again, it would be ideal to consider a more inclusive set of gender identities if they were available in the dataset!)?
 
 - Class: figure
   Output: I have loaded the data for you from the Lock5Data library (as you will see in the upper right panel)
@@ -104,10 +104,10 @@
   FigureType: new
   
 - Class: cmd_question
-  Output:  "OK, lests try it out by typing: prop.test(Gender~Smoke, data=StudentSurvey)"
-  CorrectAnswer: prop.test(Gender~Smoke, data=StudentSurvey)
-  AnswerTests: omnitest(correctExpr='prop.test(Gender~Smoke, data=StudentSurvey)')
-  Hint: Enter prop.test(Gender~Smoke, data=StudentSurvey)
+  Output:  "OK, lests try it out by typing: prop.test(Sex~Smoke, data=StudentSurvey)"
+  CorrectAnswer: prop.test(Sex~Smoke, data=StudentSurvey)
+  AnswerTests: omnitest(correctExpr='prop.test(Sex~Smoke, data=StudentSurvey)')
+  Hint: Enter prop.test(Sex~Smoke, data=StudentSurvey)
   
 - Class: mult_question
   Output: Is the result statistically significant using an alpha= 0.05?
