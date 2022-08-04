@@ -104,7 +104,7 @@
   FigureType: new
   
 - Class: cmd_question
-  Output:  "OK, lests try it out by typing: prop.test(Sex~Smoke, data=StudentSurvey)"
+  Output:  "OK, lets try it out by typing: prop.test(Sex~Smoke, data=StudentSurvey)"
   CorrectAnswer: prop.test(Sex~Smoke, data=StudentSurvey)
   AnswerTests: omnitest(correctExpr='prop.test(Sex~Smoke, data=StudentSurvey)')
   Hint: Enter prop.test(Sex~Smoke, data=StudentSurvey)
