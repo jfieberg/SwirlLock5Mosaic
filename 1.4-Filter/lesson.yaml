@@ -7,10 +7,10 @@
   Version: 2.4.2
 
 - Class: text
-  Output: Almost done with Pre-lab 1! In the last section, we learned how to find the mean, max and min number of pieces in the lego data set. In this section, we'll use the filter function to manipulate our data. 
+  Output: Almost done with Pre-lab 1! In the last section, we learned how to find the mean, max and min number of pieces in the observations contained in the lego data set. In this section, we'll use the filter function to manipulate our data. 
 
 - Class: cmd_question
-  Output: What if we wanted to see all of the cases that have just 1 lego piece.  We could use the function filter() to filter out all cases that meet this criterion! Try it now using this code - filter(legos, pieces==1) (note the double = sign!)
+  Output: What if we wanted to see all of the cases that have just 1 lego piece.  We could use the function filter() to filter out all cases that meet this criterion! The syntax for the filter function is - filter(data, criterion). To identify the cases with just 1 lego piece, we would use - filter(legos, pieces==1).
   CorrectAnswer: filter(legos, pieces==1)
   AnswerTests: omnitest(correctExpr='filter(legos, pieces==1)')
   Hint: Using the code - filter(legos, pieces==1) - we are telling R to filter the legos dataset, and only select cases where the number of pieces is equal to 1.
