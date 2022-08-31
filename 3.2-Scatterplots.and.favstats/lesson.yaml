@@ -58,7 +58,7 @@
   Hint: • A positive association means that values of one variable tend to be higher when values of the other variable are higher. A negative association means that values of one variable tend to be lower when values of the other variable are higher.W Two variables are not associated if knowing the value of one variable does not give you any information about the value of the other variable
 
 - Class: text
-  Output: Right. We'll learn later on how to determine if the correlation between variables is statistical significant.  For now, however, we can at least say that there is a positive association between these two variables.
+  Output: Right. We'll learn later on how to determine if the correlation between variables is statistically significant.  For now, however, we can at least say that there is a positive association between these two variables.
 
   
 - Class: mult_question
