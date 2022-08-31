@@ -15,7 +15,7 @@
   FigureType: new
 
 - Class: text
-  Output: The first step in performing a hypothesis test is to come up with a pair of testable hypotheses. These are referred to as the null hypothesis and the alternative hypothesis. The Null Hypothesis is usually that there "no effect" or difference between groups.  The alternative hypothesis is the claim we seek evidence for (e.g., there is a discernable difference between groups). 
+  Output: The first step in performing a hypothesis test is to come up with a pair of testable hypotheses. These are referred to as the null hypothesis and the alternative hypothesis. The Null Hypothesis is usually that there is "no effect" or difference between groups.  The alternative hypothesis is the claim we seek evidence for (e.g., there is a discernable difference between groups). 
 
 - Class: mult_question
   Output: So, which of the following is our null hypothesis for our Caffeine experiment?
@@ -56,7 +56,7 @@
   FigureType: new
   
 - Class: exact_question
-  Output: I've created a randomization distribution appropriate for this hypothesis test.  Click on the "Plots" tab in the lower right corner of Rstudio to view it.  What value is this disribution approximately centered on?
+  Output: I've created a randomization distribution appropriate for this hypothesis test.  Click on the "Plots" tab in the lower right corner of Rstudio to view it.  What value is this distribution approximately centered on?
   CorrectAnswer: 0
   AnswerTests: omnitest(correctVal='0')
   Hint: If we are simulating cases where the the groups don't matter (H0 is true), what should the difference in means be?
