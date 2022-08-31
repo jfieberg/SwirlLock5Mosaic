@@ -14,8 +14,8 @@
 
 - Class: mult_question
   Output: Let's think for a moment about what we're actually trying to accomplish when constructing a confidence interval. A 95% confidence interval describes what, exactly, in this case? 
-  AnswerChoices: We are 95% confident that the sample mean is contained in this interval.; There is a 95% chance that the truth (true mean tap rate for the caffeinated group) falls in this interval.
-  CorrectAnswer: We are 95% confident that the sample mean is contained in this interval.
+  AnswerChoices: We are 95% confident that the sample mean is contained in this interval.; We are 95% confident that the truth (true mean tap rate for the caffeinated group) is contained in this interval.
+  CorrectAnswer: We are 95% confident that the truth (true mean tap rate for the caffeinated group) is contained in this interval.
   AnswerTests: omnitest(correctVal='We are 95% confident that the truth (true mean tap rate for the caffeinated group) is contained in this interval.')
   Hint: Remember, confidence intervals are used to describe our uncertainty about a population parameter. We should expect the sample mean to be in the middle of our interval! 
 
