@@ -18,13 +18,13 @@
   Hint: Enter - CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)
 
 - Class: cmd_question
-  Output: Lets look at this object we created called CaffDiff.  Type "CaffDiff" to see the difference in means between the two groups.
+  Output: Let's look at this object we created called CaffDiff.  Type "CaffDiff" to see the difference in means between the two groups.
   CorrectAnswer: CaffDiff
   AnswerTests: omnitest(correctExpr='CaffDiff')
   Hint: Enter - CaffDiff
   
 - Class: cmd_question
-  Output: If you didn't already know which group had the larger mean, you might not know how to interpret this value, diffmean. It is always a good idea to use the mean() function along with diffmean. So, lets modify our code to use mean instead of diffmean (but do NOT assign the new result to the object, CaffDiff). 
+  Output: If you didn't already know which group had the larger mean, you might not know how to interpret this value, diffmean. It is always a good idea to use the mean() function along with diffmean. So, let's modify our code to use mean instead of diffmean (but do NOT assign the new result to the object, CaffDiff). 
   CorrectAnswer: mean(Taps~Group, data=CaffeineTaps)
   AnswerTests: omnitest(correctExpr='mean(Taps~Group, data=CaffeineTaps)')
   Hint: Enter - mean(Taps~Group, data=CaffeineTaps)
@@ -48,7 +48,7 @@
   Hint: First, we need RandDist <- in order to save our different values. Then, we put the number 1000 inside the do() function in order to repeat the loop 1000 times. Lastly, we put the same code we previously used inside of the curly braces. 
 
 - Class: cmd_question
-  Output: Lets look at what we created.  Type "head(RandDist)".  
+  Output: Let's look at what we created.  Type "head(RandDist)".  
   CorrectAnswer: head(RandDist)
   AnswerTests: omnitest(correctExpr='head(RandDist)')
   Hint: Type head(RandDist)

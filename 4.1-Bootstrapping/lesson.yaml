@@ -47,7 +47,7 @@
   Output: Just looking at this doesn't give us much statistical insight... Caffeine does appear to create a higher tap rate, but we have no clue how much variation there is in each group, so that 4 tap difference might be meaningless!
 
 - Class: cmd_question
-  Output: Lets begin by quantifying our uncertainty in the mean number of Taps for the caffeine group by creating a bootstrap distribution. We can use the filter function to isolate the data from just this group - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
+  Output: Let's begin by quantifying our uncertainty in the mean number of Taps for the caffeine group by creating a bootstrap distribution. We can use the filter function to isolate the data from just this group - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
   CorrectAnswer: CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
   AnswerTests: omnitest(correctExpr='CaffGroup <- filter(CaffeineTaps,Group==\"Caffeine\")')
   Hint: Enter - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
@@ -59,7 +59,7 @@
   Hint: Enter - CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}
 
 - Class: cmd_question
-  Output: Lets take a look at what we created by looking at the first few rows of the CaffBoot object using the head function. 
+  Output: Let's take a look at what we created by looking at the first few rows of the CaffBoot object using the head function. 
   CorrectAnswer: head(CaffBoot) 
   AnswerTests: omnitest(correctExpr='head(CaffBoot)')
   Hint: Enter - head(CaffBoot) 

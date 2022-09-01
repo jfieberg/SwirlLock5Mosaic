@@ -14,7 +14,7 @@
    
   
 - Class: cmd_question
-  Output:  Lets take a look at this dataset by clicking on it in the upper right panel.
+  Output: Let's take a look at this dataset by clicking on it in the upper right panel.
   CorrectAnswer: View(Rattlesnakes)
   AnswerTests: omnitest(correctExpr='View(Rattlesnakes)')
   Hint: You can also type View(Rattlesnakes) with a capitol V
@@ -30,26 +30,26 @@
   Hint: Think scatterplot
 
 - Class: cmd_question
-  Output: Yes, a scatterplot using gf_point.  Lets plot change in temperature on the y axis and meal size on the x axis.
+  Output: Yes, a scatterplot using gf_point. Let's plot change in temperature on the y axis and meal size on the x axis.
   CorrectAnswer: gf_point(temp.change~meal.size, data=Rattlesnakes)
   AnswerTests: omnitest(correctExpr='gf_point(temp.change~meal.size, data=Rattlesnakes)')
   Hint: Enter -  gf_point(temp.change~meal.size, data=Rattlesnakes)
 
 - Class: cmd_question
-  Output: "OK, lets fit a linear regression model to these data.  Type: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)"
+  Output: "OK, let's fit a linear regression model to these data.  Type: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)"
   CorrectAnswer: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
   AnswerTests: omnitest(correctExpr='snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)')
   Hint: Enter -  snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
 
 
 - Class: cmd_question
-  Output: "OK, lets look at what that did. We can explore the fit of the model using the summary function.  Type: summary(snake.lm)" 
+  Output: "OK, let's look at what that did. We can explore the fit of the model using the summary function.  Type: summary(snake.lm)" 
   CorrectAnswer: summary(snake.lm)
   AnswerTests: omnitest(correctExpr='summary(snake.lm)')
   Hint: Enter -  summary(snake.lm)
 
 - Class: exact_question
-  Output: There is a lot to look at here We will start with one of the most important things, the estimated slope. Underneath the "Coefficients:" section, what value is listed underneath "Estimate" and to the right of "meal.size"?  Enter your answer using 3 decimal places.
+  Output: There is a lot to look at here. We will start with one of the most important things, the estimated slope. Underneath the "Coefficients:" section, what value is listed underneath "Estimate" and to the right of "meal.size"?  Enter your answer using 3 decimal places.
   CorrectAnswer: .027
   AnswerTests: omnitest(correctVal='.027')
   Hint: Coefficients are near the middle of that block of output.  Enter your answer to 3 decimal places!
@@ -61,7 +61,7 @@
   Hint: Plug in south = 20 to this equation - temp.change = 0.32 + meal.size*0.027
 
 - Class: cmd_question
-  Output: "Lets add this best fit line to our scatterplot. We can do this using the following code: gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm() Try it!"
+  Output: "Let's add this best fit line to our scatterplot. We can do this using the following code: gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm() Try it!"
   CorrectAnswer:   gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm()
   AnswerTests: omnitest(correctExpr='gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm()')
   Hint: Enter -    gf_point(temp.change~meal.size, data=Rattlesnakes) %>% gf_lm()
@@ -72,7 +72,7 @@
   Output: We can now visualize the best fit line, which clearly shows that larger meals are associated with larger temperature changes. 
 
 - Class: cmd_question
-  Output: "OK, lets look again at the summary of our fitted model.  Type: summary(snake.lm)" 
+  Output: "OK, let's look again at the summary of our fitted model.  Type: summary(snake.lm)" 
   CorrectAnswer: summary(snake.lm)
   AnswerTests: omnitest(correctExpr='summary(snake.lm)')
   Hint: Enter -  summary(snake.lm)

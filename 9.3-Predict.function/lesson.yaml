@@ -10,27 +10,27 @@
   Output: Welcome to Pre-lab 9.3. This will be a short lab illustrating the use of the predict function with a fitted linear model. 
 
 - Class: figure
-  Output: Lets revisit our model relating temperature change to meal size in rattlesnakes.
+  Output: Let's revisit our model relating temperature change to meal size in rattlesnakes.
   Figure: rattle2.R
   FigureType: new
    
 - Class: cmd_question
-  Output: "OK, lets look again at the summary of our fitted model.  Type: summary(snake.lm)" 
+  Output: "OK, let's look again at the summary of our fitted model.  Type: summary(snake.lm)" 
   CorrectAnswer: summary(snake.lm)
   AnswerTests: omnitest(correctExpr='summary(snake.lm)')
   Hint: Enter -  summary(snake.lm)
 
 - Class: text
-  Output: "We can predict the temperature when a rattlesnake eats a meal of size = 20 units by plugging and chugging: 0.32+0.027*20 =0.86.  Or, we could use the predict function.  In this lab, we will see how to use the predict function." 
+  Output: "We can predict the temperature when a rattlesnake eats a meal of size = 20 units by plugging and chugging: 0.32+0.027*20 =0.86. Or, we could use the predict function. In this lab, we will see how to use the predict function." 
 
 - Class: cmd_question
-  Output: We can get a confidence interval for the AVERAGE temperature change following a meal of size 20 units using - predict(snake.lm, newdata=data.frame(meal.size=20), interval="confidence").  Try it!
+  Output: We can get a confidence interval for the AVERAGE temperature change following a meal of size 20 units using - predict(snake.lm, newdata=data.frame(meal.size=20), interval="confidence"). Try it!
   CorrectAnswer: predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"confidence\") 
   AnswerTests: omnitest(correctExpr='predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"confidence\")')
   Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval="confidence")
   
 - Class: cmd_question
-  Output: We can get a prediction interval for a NEW OBSERVATION  following a meal of size 20 units using-  predict(snake.lm, newdata=data.frame(meal.size=20), interval="prediction").  Try it!
+  Output: We can get a prediction interval for a NEW OBSERVATION  following a meal of size 20 units using-  predict(snake.lm, newdata=data.frame(meal.size=20), interval="prediction"). Try it!
   CorrectAnswer: predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\") 
   AnswerTests: omnitest(correctExpr='predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\")')
   Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval="prediction")
@@ -57,7 +57,7 @@
   Hint: Which interval is bigger, prediction or confidence interval?
     
 - Class: text
-  Output: Yes.  Confidence intervals/bands only account for our uncertainty regarding the best fit line. By contrast, prediction intervals/bands capture uncertainty associated with the best-fit line, but also the variation about the line. Notice how prediction bands cover encompass nearly all of the data!
+  Output: Yes. Confidence intervals/bands only account for our uncertainty regarding the best-fit line. By contrast, prediction intervals/bands capture uncertainty associated with the best-fit line, but also the variation about the line. Notice how prediction bands encompass nearly all of the data!
 
   
 - Class: mult_question
