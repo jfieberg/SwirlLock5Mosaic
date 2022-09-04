@@ -10,19 +10,19 @@
   Output: In this lesson, we will explore built functions in R for conducting hypothesis tests involving differences in means and differences in proportions. 
 
 - Class: figure
-  Output: Lets consider the HornedLizards data from class and homeowrk. I have loaded them for you (as you will see in the upper right panel)
+  Output: Let's consider the HornedLizards data from class and homework. I have loaded them for you (as you will see in the upper right panel)
   Figure: hliz.R
   FigureType: new
   
   
 - Class: cmd_question
-  Output: I have loaded this dataset into R from the abd package.  Lets take a look at this dataset by clicking on it in the upper right panel.
+  Output: I have loaded this dataset into R from the abd package. Let's take a look at this dataset by clicking on it in the upper right panel.
   CorrectAnswer: View(HornedLizards)
   AnswerTests: omnitest(correctExpr='View(HornedLizards)')
   Hint: You can also type View(HornedLizards) with a capitol V
 
 - Class: cmd_question
-  Output: "We can use the t.test function to test for a difference in mean horn length among lizards that have been killed and those that are alive.  Lets look at the help function for for t.test by typing ?stats::t.test"
+  Output: "We can use the t.test function to test for a difference in mean horn length among lizards that have been killed and those that are alive. Let's look at the help function for t.test by typing ?stats::t.test"
   CorrectAnswer: ?stats::t.test
   AnswerTests: omnitest(correctExpr='?stats::t.test')
   Hint: "Type ?stats::t.test"
@@ -35,7 +35,7 @@
   Hint: Really?  You need a hint for this one?
 
 - Class: cmd_question
-  Output:  "That is right.  t.test will conduct a hypothesis test AND give us confidence interval for the difference in means. OK, tests try it out by typing: t.test(horn.length~group, data=HornedLizards)"
+  Output:  "That is right. t.test will conduct a hypothesis test AND give us confidence interval for the difference in means. OK, try it out by typing: t.test(horn.length~group, data=HornedLizards)"
   CorrectAnswer: t.test(horn.length~group, data=HornedLizards)
   AnswerTests: omnitest(correctExpr='t.test(horn.length~group, data=HornedLizards)')
   Hint: Enter t.test(horn.length~group, data=HornedLizards)
@@ -55,7 +55,7 @@
   Hint: For small sample sizes, we need normal data.  If sample sizes are large, then we are "OK" because of the central limit theorem.
 
 - Class: text
-  Output: If we have paired data, then we need to use the paired=TRUE argument in t.test. To illustrate, lets consider an example from Whitlock and Schluter.
+  Output: If we have paired data, then we need to use the paired=TRUE argument in t.test. To illustrate, let's consider an example from Whitlock and Schluter.
   
   
 - Class: text
@@ -76,13 +76,13 @@
   FigureType: new
 
 - Class: cmd_question
-  Output: Lets look at these data by clicking on them in the upper right panel.
+  Output: Let's look at these data by clicking on them in the upper right panel.
   CorrectAnswer: View(Blackbirds)
   AnswerTests: omnitest(correctExpr='View(Blackbirds)')
   Hint: You can also type View(Blackbirds) with a capitol V
 
 - Class: cmd_question
-  Output:  "OK, lets try it out by typing: t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)"
+  Output:  "OK, let's try it out by typing: t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)"
   CorrectAnswer: t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)
   AnswerTests: omnitest(correctExpr='t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)')
   Hint: Enter t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)
@@ -95,7 +95,7 @@
   Hint: Is the p-value small?  Is 0 in the confidence interval?
 
 - Class: text
-  Output: Lastly, lets look at an example using prop.test.  For this example, lets consider the StudentSurvey dataset again.  Lets
+  Output: Lastly, let's look at an example using prop.test. For this example, let's consider the StudentSurvey dataset again. Let's
     ask if more males or females smoke (again, it would be ideal to consider a more inclusive set of gender identities if they were available in the dataset!)?
 
 - Class: figure
@@ -104,7 +104,7 @@
   FigureType: new
   
 - Class: cmd_question
-  Output:  "OK, lets try it out by typing: prop.test(Sex~Smoke, data=StudentSurvey)"
+  Output:  "OK, let's try it out by typing: prop.test(Sex~Smoke, data=StudentSurvey)"
   CorrectAnswer: prop.test(Sex~Smoke, data=StudentSurvey)
   AnswerTests: omnitest(correctExpr='prop.test(Sex~Smoke, data=StudentSurvey)')
   Hint: Enter prop.test(Sex~Smoke, data=StudentSurvey)

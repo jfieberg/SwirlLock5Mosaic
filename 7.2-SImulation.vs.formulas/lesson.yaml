@@ -16,7 +16,7 @@
 
 
 - Class: cmd_question
-  Output: I've loaded this dataset into R from the Lock5Package.  Lets take a look at this dataset by clicking on it in the upper right panel.
+  Output: I've loaded this dataset into R from the Lock5Package.  Let's take a look at this dataset by clicking on it in the upper right panel.
   CorrectAnswer: View(HotDogs2019)
   AnswerTests: omnitest(correctExpr='View(HotDogs2019)')
   Hint: You can also type View(HotDogs2019) with a capitol V
@@ -28,7 +28,7 @@
   Hint: Type Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}
 
 - Class: cmd_question
-  Output:  Lets look at our bootstrap means using the head function.
+  Output:  Let's look at our bootstrap means using the head function.
   CorrectAnswer: head(Bootdat)
   AnswerTests: omnitest(correctExpr='head(Bootdat)')
   Hint: Enter - head(Bootdat)
@@ -40,7 +40,7 @@
   Hint: Enter - bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)
 
 - Class: cmd_question
-  Output: Lets look at our interval by typing - bootCI
+  Output: Let's look at our interval by typing - bootCI
   CorrectAnswer: bootCI
   AnswerTests: omnitest(correctExpr='bootCI')
   Hint: Enter - bootCI
@@ -49,7 +49,7 @@
   Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of approximately (57, 65). We are 95% sure that the mean number of hotdogs needed to win the contest is between around 57 and  65! Thats a lot of hot dogs!
 
 - Class: cmd_question
-  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, sample mean +/- t* x SE, where SE = s / sqrt(n).  Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE.  Lets calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18) (since there are 18 cases in the dataframe).
+  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, sample mean +/- t* x SE, where SE = s / sqrt(n). Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE. Let's calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18) (since there are 18 cases in the dataframe).
   CorrectAnswer: formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)
   AnswerTests: omnitest(correctExpr='formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)')
   Hint: Enter - formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)
