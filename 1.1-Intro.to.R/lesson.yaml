@@ -13,8 +13,11 @@
   Output: These pre-labs are designed to expose you to some of the things you'll be doing in Labs throughout this semester. In this first section of Pre-Lab 1, we'll point out some of the important panels of R.  
   
 - Class: text
-  Output: RStudio is typically broken down into three or four main panels. The panel that you're reading off of right now is called the 'console' - this is where the user (you) enters their code. 
+  Output: RStudio is typically broken down into three or four main panels. If it doesn't seem like the window is broken into multiple panels, at the top of the screen, go to View, then Panes, then select Show All Panes. 
 
+- Class: text
+  Output: The panel that you're reading off of right now is called the 'console' - this is where the user (you) enters their code. 
+  
 - Class: text
   Output: The bottom-right panel shows the files you have to work with - don't worry about it for now, because we aren't going to use any.
   
@@ -24,7 +27,7 @@
   FigureType: new
   
 - Class: exact_question
-  Output: Here's your only question for Pre-Lab 1.1 - what number is listed next to 'first' in your workspace (the top-right panel)?
+  Output: Here's your only question for Pre-Lab 1.1 - what number is listed next to 'first' in your workspace (the top-right panel)? Hint: Choose a number that is labeled "Value", not one labeled "Length," if either of those two words are visible.
   CorrectAnswer: 17
   AnswerTests: omnitest(correctVal=17)
   Hint: This number is in the top right corner panel, directly to the right of the word 'first'. 
