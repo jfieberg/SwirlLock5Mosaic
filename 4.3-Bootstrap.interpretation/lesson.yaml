@@ -18,7 +18,7 @@
   Hint: Enter - gf_histogram(~result, data=CaffBoot) %>% gf_vline(xintercept=~c(247,249.6), data=NA)
 
 - Class: text
-  Output: the gf_vline() function allows us to add vertical lines. Similarly, there is a gf_hline() function for adding horizontal lines (using yintercept = ~). Remember that we use pipes ("%>%") to connect our two requests to R, gf_histogram and gf_vline in this case. Lastly, note that we could have ommitted the ~ after xintercept and also "data=NA"", but R would have sent a warning message related to mapping the xintercept in that case. 
+  Output: the gf_vline() function allows us to add vertical lines. Similarly, there is a gf_hline() function for adding horizontal lines (using yintercept = ~). Remember that we use pipes ("%>%") to connect our two requests to R, gf_histogram and gf_vline in this case. Lastly, note that we could have omitted the ~ after xintercept and also "data=NA", but R would have sent a warning message related to mapping the xintercept in that case. 
   
 - Class: mult_question
   Output: Consider the histogram and 95% confidence interval.  Which of the following is a plausible value for the parameter (the true mean tap rate for caffeinated students)?  
@@ -33,7 +33,7 @@
 - Class: cmd_question
   Output: Let's look at what happens to our interval if we want to be MORE confident - instead of a 95% interval, let's calculate a 99.9% interval. This time, we will have R calculate the interval for us directly from the bootstrap distribution using the confint() function. Try this - HighConfidence<-confint(CaffBoot, level=.999)
   CorrectAnswer: HighConfidence<-confint(CaffBoot, level=.999)
-  AnswerTests: omnitest(correctExpr='HighConfidence<-confint(CaffBoot, level=.999)')
+  AnswerTests: omnitest(correctExpr=c('HighConfidence<-confint(CaffBoot, level=.999)', 'HighConfidence=confint(CaffBoot, level=.999)'), strict = FALSE)
   Hint: Enter - HighConfidence<-confint(CaffBoot, level=.999)
 
 - Class: cmd_question
