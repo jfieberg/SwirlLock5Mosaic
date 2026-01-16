@@ -14,23 +14,23 @@
 - Class: cmd_question
   Output: To illustrate the difference between these functions, let's generate some numbers to try our sampling functions on. Enter - exampleNumbers<-seq(0,100,5)
   CorrectAnswer: exampleNumbers<-seq(0,100,5)
-  AnswerTests: omnitest(correctExpr='exampleNumbers<-seq(0,100,5)', strict=FALSE)
+  AnswerTests: omnitest(correctExpr=c('exampleNumbers<-seq(0,100,5)', 'exampleNumbers = seq(0,100,5)'), strict=FALSE)
   Hint: Enter - exampleNumbers<-seq(0,100,5)
 
 - Class: cmd_question
-  Output: The seq() function creates a sequence of numbers - from a first number, to a second number, in increments of a third number. So our new object, exampleNumbers, goes from 0 to 100 by 5. Just to see what it looks like, enter exampleNumbers in the console and press Enter.
+  Output: The seq() function creates a sequence of numbers - from a first number to a second number, in increments of a third number. So our new object, exampleNumbers, goes from 0 to 100 by 5. Just to see what it looks like, enter exampleNumbers in the console and press Enter.
   CorrectAnswer: exampleNumbers
   AnswerTests: omnitest(correctExpr='exampleNumbers')
   Hint: Typing in the name of an object (all of your objects are in your workspace - the upper right hand corner) will show us what it is. So, just type exampleNumbers and press Enter. 
 
 - Class: cmd_question
-  Output: The key difference between sample() and resample(), is that the former samples WITHOUT replacement, and the latter samples WITH replacement. This means that as soon as something is chosen in a sample(), it is removed from the population and cannot be chosen again. We can demonstrate this pretty easily by sampling our exampleNumbers. Try it - sample(exampleNumbers)
+  Output: The key difference between sample() and resample() is that the former samples WITHOUT replacement, and the latter samples WITH replacement. This means that as soon as something is chosen by sample(), it is removed from the pool and cannot be chosen again. We can demonstrate this pretty easily by sampling our exampleNumbers. Try it - sample(exampleNumbers)
   CorrectAnswer: sample(exampleNumbers)
   AnswerTests: omnitest(correctExpr='sample(exampleNumbers)')
   Hint: Enter - sample(exampleNumbers
 
 - Class: cmd_question
-  Output: It's mixed up, but each number that we started with is still there. Let's try it again using resample instead!  One quick tip - you can hit the uparrow and then add a 're' before sample to get resample(exampleNumbers).
+  Output: It's mixed up, but each number that we started with is still there. Let's try it again using resample instead!  A tip - you can hit the up arrow on your keybaord to access your previous commannd, then add a 're' before 'sample' to get resample(exampleNumbers).
   CorrectAnswer: resample(exampleNumbers)
   AnswerTests: omnitest(correctExpr='resample(exampleNumbers)')
   Hint: Last time we used sample(exampleNumbers). This time, we use resample(exampleNumbers).
@@ -45,13 +45,13 @@
   Hint: Enter - sample(Cereal)
 
 - Class: cmd_question
-  Output: Now, for comparison, try out resample(Cereal).  Again, consider using the uparrow to get to the last thing you entered, which you can then modify by adding `re' (in front of sample)
+  Output: Now, for comparison, try out resample(Cereal).  Again, consider using the up arrow to get to the last command you executed, which you can then modify.
   CorrectAnswer: resample(Cereal)
   AnswerTests: omnitest(correctExpr='resample(Cereal)')
   Hint: Enter - resample(Cereal)
 
 - Class: text
-  Output: Whereas sample() produced a permuted version of the same data frame, resample() actually includes several cases multiple times while leaving other cases out! You'll learn why this matters this week in lecture.  
+  Output: Whereas sample() produced a mixed-up version of the same data frame, resample() actually includes several of the original cases multiple times while leaving other cases out! You'll learn why this matters in lecture.  
 
   
 - Class: mult_question
