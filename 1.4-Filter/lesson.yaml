@@ -10,13 +10,13 @@
   Output: Almost done with Pre-lab 1! In the last section, we learned how to find the mean, max and min number of pieces in the observations contained in the lego data set. In this section, we'll use the filter function to manipulate our data. 
 
 - Class: cmd_question
-  Output: What if we wanted to see all of the cases that have just 1 lego piece.  We could use the function filter() to filter out all cases that meet this criterion! The syntax for the filter function is - filter(data, criterion). To identify the cases with just 1 lego piece, we would use - filter(legos, pieces==1).
+  Output: What if we wanted to see all of the cases that have just 1 lego piece? We could use the function filter() to filter out all cases that meet this criterion! The syntax for the filter function is - filter(data, criterion). To identify the cases with just 1 lego piece, we would use - filter(legos, pieces==1). Try it!
   CorrectAnswer: filter(legos, pieces==1)
   AnswerTests: omnitest(correctExpr='filter(legos, pieces==1)')
   Hint: Using the code - filter(legos, pieces==1) - we are telling R to filter the legos dataset, and only select cases where the number of pieces is equal to 1.
 
 - Class: cmd_question
-  Output: We see that there are 12 cases in the dataset that have a single lego piece!  What if we wanted to select all cases that have the 'Classic' theme?  In this case, we would use, filter(legos, theme=='Classic')
+  Output: We see that there are 12 cases in the dataset that have a single lego piece!  What if we wanted to select all cases that have the 'Classic' theme?  In this case, we would use filter(legos, theme=='Classic')
   CorrectAnswer: filter(legos, theme=='Classic')
   AnswerTests: any_of_exprs('filter(legos, theme==\'Classic\')', 'filter(legos, theme==\"Classic\")')
   Hint: Make sure to use a == and that Classic starts with a capitol C, filter(legos, theme=='Classic')
