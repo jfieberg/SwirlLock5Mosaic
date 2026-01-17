@@ -20,7 +20,7 @@
   Hint: You can also type View(Rattlesnakes) with a capitol V
 
 - Class: text
-  Output: We have 2 variables, mean.size and temp.change.  These data come from a study looking at the change in temperature (in rattlensakes) following a meal.
+  Output: We have 2 variables, mean.size and temp.change.  These data come from a study looking at the change in temperature (in rattlesnakes) following a meal.
 
 - Class: mult_question
   Output: We have 2 quantitative variables. How can we explore, visually, whether they are associated?
@@ -38,7 +38,7 @@
 - Class: cmd_question
   Output: "OK, let's fit a linear regression model to these data.  Type: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)"
   CorrectAnswer: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
-  AnswerTests: omnitest(correctExpr='snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)')
+  AnswerTests: omnitest(correctExpr=c('snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)','snake.lm=lm(temp.change~meal.size, data=Rattlesnakes)'), strict = FALSE)
   Hint: Enter -  snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
 
 
@@ -55,7 +55,7 @@
   Hint: Coefficients are near the middle of that block of output.  Enter your answer to 3 decimal places!
 
 - Class: cmd_question
-  Output: "That is the slope value for 'meal.size' in a linear equation relating the change in a rattlesnake's temperature to the size of the meal just eaten. We can use this model to predict a temperature change for any meal.size using: Temp.change = 0.32+ 0.027 * meal.size. Using this equation, what temperature change would you expect to follow a meal that is 20 units?"
+  Output: "That is the slope value for 'meal.size' in a linear equation relating the change in a rattlesnake's temperature to the size of the meal just eaten. We can use this model to predict a temperature change for any meal.size using: Temp.change = 0.32 + 0.027 * meal.size. Using this equation, what temperature change would you expect to follow a meal that is 20 units?"
   CorrectAnswer: 0.32+20*0.027
   AnswerTests: omnitest(correctExpr='0.32+20*0.027', correctVal='0.86')
   Hint: Plug in south = 20 to this equation - temp.change = 0.32 + meal.size*0.027
