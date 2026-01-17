@@ -16,7 +16,7 @@
   Hint: Click on SandwichAnts.
 
 - Class: cmd_question
-  Output: Let's visualize the data using side-by-side boxplots so we can see if there are any differences in the number of ants on different types of sandwiches. Try it now using gf_boxplot().
+  Output: Let's visualize the data using side-by-side boxplots so we can see if there are any differences in the number of ants on different types of sandwiches. Try it now using gf_boxplot(). Hint - the columns we're interested in are Ants and Filling.
   CorrectAnswer: gf_boxplot(Ants~Filling, data=SandwichAnts)
   AnswerTests: omnitest(correctExpr='gf_boxplot(Ants~Filling, data=SandwichAnts)')
   Hint: Remember the general format - goal(y~x, data=mydata). Our function is gf_boxplot(), y is Ants...
@@ -41,7 +41,7 @@
   Hint: Look directly below Pr(>F).
 
 - Class: text
-  Output: This means that our p-value is below .05, but above .01. Pretty good! We can say that the means of these three groups are significantly different from one another... BUT, we cannot say definitively whether any one group's means are different than another group's without using a pairwise comparison (which you will do in lab). 
+  Output: This means that our p-value is below .05, but above .01. Pretty good! We can say that at least one group mean is significantly different from at least one another... BUT, we cannot say definitively whether any one specific group's mean is different than another group's without using a pairwise comparison (which you will do in lab). 
 
 - Class: cmd_question
   Output: There is another categorical variable in our dataset - Bread. Try modifying our ANOVA code to test for a difference in Ant means between types of Bread! Our code was - anova(lm(Ants~Filling, data=SandwichAnts))
