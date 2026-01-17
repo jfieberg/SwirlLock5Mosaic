@@ -38,7 +38,7 @@
 - Class: cmd_question
   Output: "OK, let's fit a linear regression model to these data.  Type: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)"
   CorrectAnswer: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
-  AnswerTests: omnitest(correctExpr=c('snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)','snake.lm=lm(temp.change~meal.size, data=Rattlesnakes)'), strict = FALSE)
+  AnswerTests: any_of_exprs('snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)','snake.lm=lm(temp.change~meal.size, data=Rattlesnakes)')
   Hint: Enter -  snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
 
 
