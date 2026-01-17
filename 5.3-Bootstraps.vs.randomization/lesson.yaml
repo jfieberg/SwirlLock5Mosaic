@@ -25,7 +25,7 @@
   Hint: Where is the peak of this distribution?
 
 - Class: text
-  Output: Yes!  The randomization distribution tells us what values for diffmean we are likely to see IF the null hypothesis is true.  If caffeiene has NO EFFECT on tap rate, then we would expect that the difference in mean tap rate for the two groups would, on average, equal 0.
+  Output: Yes!  The randomization distribution tells us what values for diffmean we are likely to see IF the null hypothesis is true.  If caffeine has NO EFFECT on tap rate, then we would expect that the difference in mean tap rate for the two groups would, on average, equal 0.
 
 - Class: mult_question
   Output: If we had calculated a bootstrap distribution, where would this distribution have been centered? 
