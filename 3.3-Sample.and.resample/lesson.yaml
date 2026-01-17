@@ -14,7 +14,7 @@
 - Class: cmd_question
   Output: To illustrate the difference between these functions, let's generate some numbers to try our sampling functions on. Enter - exampleNumbers<-seq(0,100,5)
   CorrectAnswer: exampleNumbers<-seq(0,100,5)
-  AnswerTests: omnitest(correctExpr=c('exampleNumbers<-seq(0,100,5)', 'exampleNumbers = seq(0,100,5)'), strict=FALSE)
+  AnswerTests: any_of_exprs('exampleNumbers<-seq(0,100,5)', 'exampleNumbers = seq(0,100,5)')
   Hint: Enter - exampleNumbers<-seq(0,100,5)
 
 - Class: cmd_question
