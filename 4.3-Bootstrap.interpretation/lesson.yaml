@@ -33,7 +33,7 @@
 - Class: cmd_question
   Output: Let's look at what happens to our interval if we want to be MORE confident - instead of a 95% interval, let's calculate a 99.9% interval. This time, we will have R calculate the interval for us directly from the bootstrap distribution using the confint() function. Try this - HighConfidence<-confint(CaffBoot, level=.999)
   CorrectAnswer: HighConfidence<-confint(CaffBoot, level=.999)
-  AnswerTests: omnitest(correctExpr=c('HighConfidence<-confint(CaffBoot, level=.999)', 'HighConfidence=confint(CaffBoot, level=.999)'), strict = FALSE)
+  AnswerTests: any_of_exprs('HighConfidence<-confint(CaffBoot, level=.999)', 'HighConfidence=confint(CaffBoot, level=.999)')
   Hint: Enter - HighConfidence<-confint(CaffBoot, level=.999)
 
 - Class: cmd_question
