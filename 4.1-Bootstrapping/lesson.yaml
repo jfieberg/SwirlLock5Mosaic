@@ -49,13 +49,13 @@
 - Class: cmd_question
   Output: Let's begin by quantifying our uncertainty in the mean number of Taps for the caffeine group by creating a bootstrap distribution. We can use the filter function to isolate the data from just this group - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
   CorrectAnswer: CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
-  AnswerTests: omnitest(correctExpr=c('CaffGroup <- filter(CaffeineTaps,Group==\"Caffeine\")', 'CaffGroup = filter(CaffeineTaps,Group==\"Caffeine\")'), strict = FALSE)
+  AnswerTests: any_of_exprs('CaffGroup <- filter(CaffeineTaps,Group==\"Caffeine\")', 'CaffGroup = filter(CaffeineTaps,Group==\"Caffeine\")')
   Hint: Enter - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
 
 - Class: cmd_question
   Output: Now that we have the data we want, let's use a do loop to resample the data many times to see how much the mean changes! Try it now - CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}
   CorrectAnswer: CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}
-  AnswerTests: omnitest(correctExpr=c('CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}', 'CaffBoot = do(5000)*{mean(~Taps, data=resample(CaffGroup))}'), strict = FALSE)
+  AnswerTests: any_of_exprs('CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}', 'CaffBoot = do(5000)*{mean(~Taps, data=resample(CaffGroup))}')
   Hint: Enter - CaffBoot <- do(5000)*{mean(~Taps, data=resample(CaffGroup))}
 
 - Class: cmd_question
