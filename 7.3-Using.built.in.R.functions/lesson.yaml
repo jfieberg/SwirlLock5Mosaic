@@ -24,7 +24,7 @@
 - Class: cmd_question
   Output: "We can use the t.test function to test for a difference in mean horn length among lizards that have been killed and those that are alive. Let's look at the help function for t.test by typing ?stats::t.test"
   CorrectAnswer: ?stats::t.test
-  AnswerTests: omnitest(correctExpr=c('?stats::t.test','?t.test'), strict = FALSE)
+  AnswerTests: any_of_exprs('?stats::t.test','?t.test')
   Hint: "Type ?stats::t.test"
 
 - Class: mult_question
@@ -88,7 +88,7 @@
   Hint: Enter t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)
   
 - Class: mult_question
-  Output: Is the result statistically significant using an alph a= 0.05?
+  Output: Is the result statistically significant using an alpha = 0.05?
   AnswerChoices: Yes;No
   CorrectAnswer: No
   AnswerTests: omnitest(correctVal='No')
@@ -110,7 +110,7 @@
   Hint: Enter prop.test(Sex~Smoke, data=StudentSurvey)
   
 - Class: mult_question
-  Output: Is the result statistically significant using an alph a= 0.05?
+  Output: Is the result statistically significant using an alpha = 0.05?
   AnswerChoices: Yes;No
   CorrectAnswer: No
   AnswerTests: omnitest(correctVal='No')
