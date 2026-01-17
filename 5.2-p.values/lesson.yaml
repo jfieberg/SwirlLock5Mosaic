@@ -14,7 +14,7 @@
 - Class: cmd_question
   Output: First off, let's get the actual difference in mean (diffmean) between the two groups. Try it now - CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)
   CorrectAnswer: CaffDiff<- diffmean(Taps~Group, data=CaffeineTaps)
-  AnswerTests: omnitest(correctExpr='CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)')
+  AnswerTests: omnitest(correctExpr=c('CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)', 'CaffDiff = diffmean(Taps~Group, data=CaffeineTaps)'), strict = FALSE)
   Hint: Enter - CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)
 
 - Class: cmd_question
@@ -24,16 +24,16 @@
   Hint: Enter - CaffDiff
   
 - Class: cmd_question
-  Output: If you didn't already know which group had the larger mean, you might not know how to interpret this value, diffmean. It is always a good idea to use the mean() function along with diffmean. So, let's modify our code to use mean instead of diffmean (but do NOT assign the new result to the object, CaffDiff). 
+  Output: If you didn't already know which group had the larger mean, you might not know how to interpret this value, diffmean. It is always a good idea to use the mean() function along with diffmean. So, let's modify our code to use mean instead of diffmean (but do NOT assign the new result to the object, CaffDiff). Type - mean(Taps ~ Group, data = CaffeineTaps)
   CorrectAnswer: mean(Taps~Group, data=CaffeineTaps)
   AnswerTests: omnitest(correctExpr='mean(Taps~Group, data=CaffeineTaps)')
   Hint: Enter - mean(Taps~Group, data=CaffeineTaps)
 
 - Class: text
-  Output: So now we know that we're subtracting the Caffeine group from the NoCaffeine group, and that the difference is -3.5.
+  Output: So now we know that we're subtracting the Caffeine group from the NoCaffeine group, and that's why the difference is -3.5.
 
 - Class: text
-  Output: Now, we need to make a randomization distribution. Recall, we want to create datasets where the Null Hypothesis is true - i.e., we want create datasets where caffeination has no effect on tap rate.  We can do this by randomly assigning the group label "Caffeiene" or "No Caffeiene" to each case!  We will then calculate the statistic of interest (here diffmean) to see what values are likely when the Null Hypothesis is true!
+  Output: Now, we need to make a randomization distribution. Recall, we want to create datasets where the Null Hypothesis is true - i.e., we want create datasets where caffeination has no effect on tap rate.  We can do this by randomly assigning the group labels "Caffeiene" or "No Caffeiene" to each case!  We will then calculate the statistic of interest (here diffmean) to see what values are likely when the Null Hypothesis is true!
 
 - Class: cmd_question
   Output: In R, we can accomplish this task using the shuffle() function.  Shuffle will randomly reorder the Groups variable. We can combine shuffle with the function diffmean. Try it now - diffmean(Taps~shuffle(Group), data=CaffeineTaps)
@@ -44,7 +44,7 @@
 - Class: cmd_question
   Output: Great, that's exactly what we want. You'll notice that this value is different than the statistic (difference in means) that we calculated with our original data, which was -3.5. Now, we want to repeat (i.e., "do") this a total of 1000 times using the following format - do()*{your code} so that we can get a better idea of the range of values we might see if the Null Hypothesis were true. Try it now, and save the output in an object called RandDist.
   CorrectAnswer: RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}
-  AnswerTests: omnitest(correctExpr='RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}')
+  AnswerTests: omnitest(correctExpr=c('RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}', 'RandDist = do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}'), strict = FALSE)
   Hint: First, we need RandDist <- in order to save our different values. Then, we put the number 1000 inside the do() function in order to repeat the loop 1000 times. Lastly, we put the same code we previously used inside of the curly braces. 
 
 - Class: cmd_question
@@ -66,13 +66,13 @@
   Output: Now we have a bell-shaped distribution, centered at zero, that includes 1000 possible diffmeans in the case where there is no connection between Caffeine and tap rate. To finally answer our question, we will calculate a p-value. 
 
 - Class: cmd_question
-  Output: A p-value represents the proportion of randomized values that are AS or MORE extreme as the value we observed with the original data we collected. We want to know, for how many of our simulated datasets did we get a diffmean value as extreme as -3.5? We can figure this out by typing- 2*prop(~diffmean < CaffDiff, data=RandDist) for a 2-sided p-value.  This calculation is approximately the same as determining the probability of getting a difference in means less than -3.5 or greater than 3.5.
+  Output: A p-value represents the proportion of randomized values that are AT LEAST AS extreme as the value we observed with the original data we collected. We want to know, for how many of our simulated datasets, did we get a diffmean value as extreme as -3.5? We can figure this out by typing - 2*prop(~diffmean < CaffDiff, data=RandDist) for a 2-sided p-value.  This calculation is approximately the same as determining the probability of getting a difference in means less than -3.5 or greater than 3.5.
   CorrectAnswer: 2*prop(~diffmean < CaffDiff, data=RandDist)
   AnswerTests: omnitest(correctExpr='2*prop(~diffmean < CaffDiff, data=RandDist)')
   Hint: Enter - 2*prop(~diffmean < CaffDiff, data=RandDist)
 
 - Class: text
-  Output: At a 95% confidence level, we call something significant if the p-value is lower than .05 - and this is MUCH lower than .05! Thus, we can say with statistical confidence that Caffeine affects Tap rate in students. In the next section, we'll work on identifying the differences between randomization and bootstrap distributions.
+  Output: At a 95% confidence level, we call something statistically significant if the p-value is lower than .05 - and this p-value is MUCH lower than .05! Thus, we can say with statistical confidence that Caffeine affects Tap rate in students. In the next section, we'll work on identifying the differences between randomization and bootstrap distributions.
   
   
 - Class: mult_question
