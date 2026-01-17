@@ -42,27 +42,27 @@
   Hint: For H0 to be true, the diffmean needs to be EXACTLY zero. For HA, the diffmean can be ANYTHING that isn't zero. 
 
 - Class: exact_question
-  Output: In fact, for how many conditions of diffmean is H0 true? Remember, H0 -> diffmean = 0. 
+  Output: In fact, how many possible ways can H0 be true? Remember, H0 -> diffmean = 0. 
   CorrectAnswer: 1
   AnswerTests: omnitest(correctVal='1')
   Hint: There is only one single value of diffmean where the null hypothesis is true, 0. 
 
 - Class: text
-  Output: Exactly. You might think, based solely on this, that we would tend to accept most alternative hypotheses. However, much like in a court of law where the accused are presumed innocent until there is sufficient evidence to prove they are guilty without a reasonable doubt, we will assume the Null Hypothesis is true until we have sufficient evidence to say otherwise. If we can determine that, when the null hypothesis is true, it would be highly unlikely to see a diffmean as or more extreme as the one we observed, then we will reject the Null Hypothesis in favor of the alternative.
+  Output: Exactly. You might think, based solely on this, that we would tend to accept most alternative hypotheses. However, much like in a court of law where the accused are presumed innocent until there is sufficient evidence to prove they are guilty without a reasonable doubt, we will assume the Null Hypothesis is true until we have sufficient evidence to say otherwise. If we can determine that, when the null hypothesis is true, it would be highly unlikely to see a diffmean at least as extreme as the one we observed, then we will reject the Null Hypothesis in favor of the alternative.
 
 - Class: figure
-  Output: To conduct the hypothesis test, we will simulate many, many samples where the null hypothesis is TRUE.  We will calculate the same statistic of interest (here, diffmean) for each of these samples. We will then compare our observed diffmean (for our original data) to this distribution to determine if our statistic should be considered extreme (when the Null Hypothesis is true).
+  Output: To conduct the hypothesis test, we will simulate many, many samples where the null hypothesis is TRUE.  We will calculate the same statistic of interest (here, diffmean) for each of these samples. We will then compare our observed diffmean (for our original data) to this distribution of simulated diffmeans to determine if our statistic should be considered extreme (when the Null Hypothesis is true).
   Figure: RandEg.R
   FigureType: new
   
 - Class: exact_question
-  Output: I've created a randomization distribution appropriate for this hypothesis test.  Click on the "Plots" tab in the lower right corner of Rstudio to view it.  What value is this distribution approximately centered on?
+  Output: I've created a randomization distribution appropriate for this hypothesis test.  Click on the "Plots" tab in the lower right corner of RStudio to view it.  What value is this distribution approximately centered on?
   CorrectAnswer: 0
   AnswerTests: omnitest(correctVal='0')
   Hint: If we are simulating cases where the the groups don't matter (H0 is true), what should the difference in means be?
 
 - Class: text
-  Output: Exactly - in the next section, we'll learn how to produce a distribution like this one, and we'll learn how to quantify how extreme our observed statistic is! 
+  Output: Exactly! That's precisely what we'd expect. If the null really is true, most simulated samples should make it look good. In the next section, we'll learn how to produce a distribution like this one, and we'll learn how to quantify how extreme our observed statistic is! 
 
   
 - Class: mult_question
