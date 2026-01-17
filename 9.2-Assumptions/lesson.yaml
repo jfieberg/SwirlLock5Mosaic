@@ -63,7 +63,7 @@
 - Class: cmd_question
   Output: "Now, try using lm() to create a linear model, using GPA as a predictor for SAT. This time, save it into an object called SAT.GPA. Enter: SAT.GPA <- lm(SAT~GPA,data=StudentSurvey)"
   CorrectAnswer: SAT.GPA<-lm(SAT~GPA, data=StudentSurvey)
-  AnswerTests: omnitest(correctExpr='SAT.GPA<-lm(SAT~GPA, data=StudentSurvey)')
+  AnswerTests: omnitest(correctExpr=c('SAT.GPA<-lm(SAT~GPA, data=StudentSurvey)', 'SAT.GPA=lm(SAT~GPA, data=StudentSurvey)'), strict = FALSE)
   Hint: Enter SAT.GPA <- lm(SAT~GPA,data=StudentSurvey) 
 
 - Class: cmd_question
@@ -87,7 +87,7 @@
   Hint:  Do the residuals look to be equally spread out as you move along the x-axis?
 
 - Class: mult_question
-  Output: Yes, the residuals look equally spread out as you move along the x-axis. Based on the uppper right plot, do you think the normality assumption is reasonable?
+  Output: Yes, the residuals look equally spread out as you move along the x-axis. Based on the upper right plot, do you think the normality assumption is reasonable?
   AnswerChoices: Yes; No
   CorrectAnswer: Yes
   AnswerTests: omnitest(correctVal='Yes')
