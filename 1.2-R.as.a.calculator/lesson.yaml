@@ -27,7 +27,7 @@
 - Class: cmd_question
   Output: Let's try it; assign the product of 12 and 15 to a new object called 'test'. 
   CorrectAnswer: test <- 12 * 15
-  AnswerTests: omnitest(correctExpr=c('test <- 12 * 15', 'test = 12 * 15'), strict=FALSE)
+  AnswerTests: any_of_exprs('test <- 12 * 15', 'test = 12 * 15')
   Hint: Type in test <- 12 * 15 and press enter. 
 
 - Class: text
