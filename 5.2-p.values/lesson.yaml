@@ -14,7 +14,7 @@
 - Class: cmd_question
   Output: First off, let's get the actual difference in mean (diffmean) between the two groups. Try it now - CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)
   CorrectAnswer: CaffDiff<- diffmean(Taps~Group, data=CaffeineTaps)
-  AnswerTests: omnitest(correctExpr=c('CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)', 'CaffDiff = diffmean(Taps~Group, data=CaffeineTaps)'), strict = FALSE)
+  AnswerTests: any_of_exprs('CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)', 'CaffDiff = diffmean(Taps~Group, data=CaffeineTaps)')
   Hint: Enter - CaffDiff <- diffmean(Taps~Group, data=CaffeineTaps)
 
 - Class: cmd_question
@@ -44,7 +44,7 @@
 - Class: cmd_question
   Output: Great, that's exactly what we want. You'll notice that this value is different than the statistic (difference in means) that we calculated with our original data, which was -3.5. Now, we want to repeat (i.e., "do") this a total of 1000 times using the following format - do()*{your code} so that we can get a better idea of the range of values we might see if the Null Hypothesis were true. Try it now, and save the output in an object called RandDist.
   CorrectAnswer: RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}
-  AnswerTests: omnitest(correctExpr=c('RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}', 'RandDist = do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}'), strict = FALSE)
+  AnswerTests: any_of_exprs('RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}', 'RandDist = do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}')
   Hint: First, we need RandDist <- in order to save our different values. Then, we put the number 1000 inside the do() function in order to repeat the loop 1000 times. Lastly, we put the same code we previously used inside of the curly braces. 
 
 - Class: cmd_question
