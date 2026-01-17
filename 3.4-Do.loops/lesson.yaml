@@ -24,7 +24,7 @@
 
 - Class: cmd_question
   Output: Let's use a more realistic and less lucrative example. Just so we have something to work with, let's generate some data. We'll generate 15 numbers, pulled at random from a Normal distribution (this is a bell-shaped distribution that depends on two parameters, a mean and a standard deviation - you will learn more about the Normal distribution in Chapter 5!). We're going to pretend that these numbers are the canopy heights of trees in rural Panama. Enter - bigtrees<-data.frame(canopy=rnorm(n=15,mean=1000,sd=200)). This will create a dataset with a single variable, canopy, and 15 observations.
-  AnswerTests: omnitest(correctExpr=c('bigtrees<-data.frame(canopy=rnorm(n=15,mean=1000,sd=200))', 'bigtrees=data.frame(canopy=rnorm(n=15,mean=1000,sd=200))'), strict=FALSE)
+  AnswerTests: any_of_exprs('bigtrees<-data.frame(canopy=rnorm(n=15,mean=1000,sd=200))', 'bigtrees=data.frame(canopy=rnorm(n=15,mean=1000,sd=200))')
   Hint: n represents the number of numbers we want, and mean and sd are the mean and sd of our Normal distribution. Enter - bigtrees<-dataframe(canopy=rnorm(n=15,mean=1000,sd=200))
 
 - Class: cmd_question
