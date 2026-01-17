@@ -7,7 +7,7 @@
   Version: 2.4.2
 
 - Class: text
-  Output: So, we know how to calculate confidence intervals using both simulation (bootstrapping) and formulas. Let's do both on a given dataset, and see how they compare to one another.
+  Output: So, we know how to calculate confidence intervals using both simulation (bootstrapping) and formulas. Let's do both on a given dataset and see how they compare to one another.
 
 - Class: figure
   Output: Every Fourth of July, Nathan's Famous in New York City holds a hot dog eating contest, in which contestants try to eat as many hot dogs (with buns) as possible in ten minutes. The data set HotDogs2019 contains the winning number of hot dogs for each year from 2002-2019.
@@ -24,7 +24,7 @@
 - Class: cmd_question
   Output: Let's first create a bootstrap distribution for the mean number of hot dogs needed to win the contest (in this case, our parameter is the "population mean" or, the average number of hot dogs need to win if you looked at ALL past and future years of the contest). Try it now, enter - Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}.
   CorrectAnswer: Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}
-  AnswerTests: omnitest(correctExpr='Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}')
+  AnswerTests: omnitest(correctExpr=c('Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}', 'Bootdat=do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}'), strict = FALSE)
   Hint: Type Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs2019))}
 
 - Class: cmd_question
@@ -36,7 +36,7 @@
 - Class: cmd_question
   Output: Now, let's get a confidence interval using the qdata functon - bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)
   CorrectAnswer: bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)
-  AnswerTests: omnitest(correctExpr='bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)')
+  AnswerTests: omnitest(correctExpr=c('bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)', 'bootCI=qdata(~result, p=c(.025,0.975), data=Bootdat)'), strict = FALSE)
   Hint: Enter - bootCI<-qdata(~result, p=c(.025,0.975), data=Bootdat)
 
 - Class: cmd_question
@@ -46,18 +46,18 @@
   Hint: Enter - bootCI
 
 - Class: text
-  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of approximately (57, 65). We are 95% sure that the mean number of hotdogs needed to win the contest is between around 57 and  65! Thats a lot of hot dogs!
+  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of approximately (57, 65). We are 95% sure that the mean number of hotdogs needed to win the contest is between around 57 and  65! That's a lot of hot dogs!
 
 - Class: cmd_question
-  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, sample mean +/- t* x SE, where SE = s / sqrt(n). Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE. Let's calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18) (since there are 18 cases in the dataframe).
+  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is - sample mean +/- t* x SE, where SE = s / sqrt(n). Note, s is the standard deviation of the data. So, to calculate our interval, we need to first calculate the SE. Let's calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18) (since there are 18 cases in the dataframe).
   CorrectAnswer: formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)
-  AnswerTests: omnitest(correctExpr='formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)')
+  AnswerTests: omnitest(correctExpr=c('formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)', 'formSE = sd(~HotDogs, data=HotDogs2019)/sqrt(18)'), strict = FALSE)
   Hint: Enter - formSE <- sd(~HotDogs, data=HotDogs2019)/sqrt(18)
 
 - Class: cmd_question
   Output: We need two more things to make a confidence interval. We need the mean number of hotdogs in our sample data and the t* for a 95% confidence interval. Let's get the mean first - call it formMean (for formula mean), formMean<-mean(~HotDogs, data=HotDogs2019).
   CorrectAnswer: formMean <- mean(~HotDogs, data=HotDogs2019)
-  AnswerTests: omnitest(correctExpr='formMean <- mean(~HotDogs, data=HotDogs2019)')
+  AnswerTests: omnitest(correctExpr=c('formMean <- mean(~HotDogs, data=HotDogs2019)', 'formMean = mean(~HotDogs, data=HotDogs2019)'), strict = FALSE)
   Hint: Enter - formMean <- mean(~HotDogs, data=HotDogs2019)
 
 - Class: exact_question
@@ -69,13 +69,13 @@
 - Class: cmd_question
   Output: Exactly. So, we can get t* (and store it in an object called tstars) by using the xqt function as follows - tstars <- xqt(p=c(.025, .975), df=17)
   CorrectAnswer: tstars <- xqt(p=c(.025, .975), df=17)
-  AnswerTests: omnitest(correctExpr='tstars <- xqt(p=c(.025, .975), df=17)')
+  AnswerTests: omnitest(correctExpr=c('tstars <- xqt(p=c(.025, .975), df=17)', 'tstars = xqt(p=c(.025, .975), df=17)'), strict = FALSE)
   Hint: Enter -  tstars <- xqt(p=c(.025, .975), df=17)
 
 - Class: cmd_question
   Output: Let's put it all together to see our formula-produced confidence interval. Try it out now - formCI <- formMean + tstars*formSE
   CorrectAnswer: formCI <- formMean + tstars*formSE
-  AnswerTests: omnitest(correctExpr='formCI <- formMean + tstars*formSE')
+  AnswerTests: omnitest(correctExpr=c('formCI <- formMean + tstars*formSE', 'formCI = formMean + tstars*formSE'), strict = FALSE)
   Hint: Enter - formCI <- formMean + tstars*formSE
 
 - Class: cmd_question
