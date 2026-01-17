@@ -63,7 +63,7 @@
 - Class: cmd_question
   Output: "Now, try using lm() to create a linear model, using GPA as a predictor for SAT. This time, save it into an object called SAT.GPA. Enter: SAT.GPA <- lm(SAT~GPA,data=StudentSurvey)"
   CorrectAnswer: SAT.GPA<-lm(SAT~GPA, data=StudentSurvey)
-  AnswerTests: omnitest(correctExpr=c('SAT.GPA<-lm(SAT~GPA, data=StudentSurvey)', 'SAT.GPA=lm(SAT~GPA, data=StudentSurvey)'), strict = FALSE)
+  AnswerTests: any_of_exprs('SAT.GPA<-lm(SAT~GPA, data=StudentSurvey)', 'SAT.GPA=lm(SAT~GPA, data=StudentSurvey)')
   Hint: Enter SAT.GPA <- lm(SAT~GPA,data=StudentSurvey) 
 
 - Class: cmd_question
