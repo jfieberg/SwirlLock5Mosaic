@@ -62,7 +62,7 @@
   Hint: If we are simulating cases where the the groups don't matter (H0 is true), what should the difference in means be?
 
 - Class: text
-  Output: Exactly! That's precisely what we'd expect. If the null really is true, most simulated samples should make it look good. In the next section, we'll learn how to produce a distribution like this one, and we'll learn how to quantify how extreme our observed statistic is! 
+  Output: Exactly! That's precisely what we'd expect. If the null really is true, then we should expect the difference in means, on average, to be 0. In the next section, we'll learn how to produce a distribution like this one, and we'll learn how to quantify how extreme our observed statistic is! 
 
   
 - Class: mult_question
