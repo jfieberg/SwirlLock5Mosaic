@@ -72,7 +72,7 @@
   Hint: Enter - 2*prop(~diffmean < CaffDiff, data=RandDist)
 
 - Class: text
-  Output: At a 95% confidence level, we call something statistically significant if the p-value is lower than .05 - and this p-value is MUCH lower than .05! Thus, we can say with statistical confidence that Caffeine affects Tap rate in students. In the next section, we'll work on identifying the differences between randomization and bootstrap distributions.
+  Output: At a 95% confidence level, we call something statistically significant (or better, "statistically discernible") if the p-value is lower than .05 - and this p-value is MUCH lower than .05! Thus, we can say with statistical confidence that Caffeine affects Tap rate in students. In the next section, we'll work on identifying the differences between randomization and bootstrap distributions.
   
   
 - Class: mult_question
