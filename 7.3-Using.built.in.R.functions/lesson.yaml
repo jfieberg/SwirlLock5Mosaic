@@ -41,7 +41,7 @@
   Hint: Enter t.test(horn.length~group, data=HornedLizards)
   
 - Class: mult_question
-  Output: Is the result statistically significant using an alpha = 0.05?
+  Output: Is the result statistically significant (i.e., statistically discernible) using an alpha = 0.05?
   AnswerChoices: Yes;No
   CorrectAnswer: Yes
   AnswerTests: omnitest(correctVal='Yes')
@@ -88,7 +88,7 @@
   Hint: Enter t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)
   
 - Class: mult_question
-  Output: Is the result statistically significant using an alpha = 0.05?
+  Output: Is the result statistically significant (i.e., statistically discernible) using an alpha = 0.05?
   AnswerChoices: Yes;No
   CorrectAnswer: No
   AnswerTests: omnitest(correctVal='No')
@@ -110,7 +110,7 @@
   Hint: Enter prop.test(Sex~Smoke, data=StudentSurvey)
   
 - Class: mult_question
-  Output: Is the result statistically significant using an alpha = 0.05?
+  Output: Is the result statistically significant (i.e., statistically discernible) using an alpha = 0.05?
   AnswerChoices: Yes;No
   CorrectAnswer: No
   AnswerTests: omnitest(correctVal='No')
