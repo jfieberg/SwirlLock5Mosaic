@@ -30,14 +30,14 @@
   Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval="confidence")
   
 - Class: cmd_question
-  Output: We can get a prediction interval for a NEW OBSERVATION  following a meal of size 20 units using-  predict(snake.lm, newdata=data.frame(meal.size=20), interval="prediction"). Try it!
+  Output: Right! That interval tells us where we should expect the average observation to fall for a meal size of 20 units. Next, we can get a prediction interval for a NEW OBSERVATION following a meal of size 20 units using - predict(snake.lm, newdata=data.frame(meal.size=20), interval="prediction"). Try it!
   CorrectAnswer: predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\") 
   AnswerTests: omnitest(correctExpr='predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\")')
   Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval="prediction")
   
 
 - Class: mult_question
-  Output: Which is larger? Why?
+  Output: Right again! That interval tells us where we should expect most observations to fall for a meal size of 20 units. Which is larger? Why?
   AnswerChoices: confidence interval since we need to be confident in our answer;  prediction interval since we must account for uncertainty in the true line as well as variation about the line
   CorrectAnswer: prediction interval since we must account for uncertainty in the true line as well as variation about the line
   AnswerTests: omnitest(correctVal='prediction interval since we must account for uncertainty in the true line as well as variation about the line')

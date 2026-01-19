@@ -16,18 +16,18 @@
   Hint: Just like a calculator - 15 * 17
 
 - Class: cmd_question
-  Output: Now, try dividing 30 by the sum of 12 and 3. This can be accomplished by using a set of parentheses around 12 and 3, just like you would on a calculator.
+  Output: Now, try dividing 30 by the sum of 12 and 3. This can be accomplished by using a set of parentheses around 12 and 3, just like you would on a calculator. A hint is that / is the division operator in R.
   CorrectAnswer: 30 / (12+3)
   AnswerTests: omnitest(correctExpr='30 / (12+3)', 2)
   Hint: We want to make sure that 12 and 3 are added together before we divide, so we type 30 / (12+3).
 
 - Class: text
-  Output: Sometimes, if can be helpful to save one of these values as an 'object' for later reuse. An object can take on many forms, but in this case, we want to assign it a single value. In order to assign a value to an object, we need to use the assignment operator '<-'. 
+  Output: Sometimes, if can be helpful to save one of these values as an 'object' for later reuse. An object can take on many forms, but in this case, we want to assign it a single value. In order to assign a value to an object, we need to use the assignment operator '<-' (or, equivalently, '='). 
 
 - Class: cmd_question
   Output: Let's try it; assign the product of 12 and 15 to a new object called 'test'. 
   CorrectAnswer: test <- 12 * 15
-  AnswerTests: omnitest(correctExpr=c('test <- 12 * 15'), strict=FALSE)
+  AnswerTests: any_of_exprs('test <- 12 * 15', 'test = 12 * 15')
   Hint: Type in test <- 12 * 15 and press enter. 
 
 - Class: text

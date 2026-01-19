@@ -10,10 +10,10 @@
   Output: Welcome to Pre-Lab 2. In this section, we'll practice picking out the difference between categorical and quantitative variables using an example data set from Lock5Data. 
 
 - Class: text
-  Output: Let's recall the definiton of a categorical variable. A categorical variable divides each case into a distinct category, or group, with no grey area in between. For example, an animal is either live OR dead. A tree is either spruce OR fir OR pine. The number of groups does not matter, but they are discrete. 
+  Output: Let's recall the definiton of a categorical variable. A categorical variable divides each case into a distinct category, or group, with no grey area in between. For example, an animal is either alive OR dead. A tree is either spruce OR fir OR pine. The number of groups does not matter. 
 
 - Class: figure
-  Output: On the other hand, a quantitative variable measures or records a quantity for each case. For example, the age of a person is 32. The height of the sears tower is 1,729 feet. These variables exist on a spectrum - there are many ages less than 35, and many buildings shorter than 1,729 feet. 
+  Output: On the other hand, a quantitative variable measures or records a quantity for each case. For example, the age of a person is 32. The height of the Sears Tower is 1,729 feet. These variables exist on a spectrum - there are many ages less than 35, and many buildings shorter than 1,729 feet. 
   Figure: student.R
   FigureType: new
 

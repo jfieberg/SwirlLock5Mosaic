@@ -24,7 +24,7 @@
   Hint: No need to type anything, just click the word legos in the top right corner panel (your workspace).
  
 - Class: cmd_question
-  Output: This data set contains information on lego sets that were for sale between January 1 2018 and September 11, 2020. If we want to find the mean number of lego pieces in a box set, we'd follow the format from above and use - mean(~pieces, data=legos)
+  Output: This data set contains information on lego sets that were for sale between January 1 2018 and September 11, 2020. If we want to find the mean number of lego pieces in a box set, we'd follow the format from above and use - mean(~pieces, data=legos). Try it!
   CorrectAnswer: mean(~pieces, data=legos)
   AnswerTests: omnitest(correctExpr='mean(~pieces, data=legos)')
   Hint: If you received an error, type this in exactly as it appears, mean(~pieces, data=legos)

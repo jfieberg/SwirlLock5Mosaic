@@ -23,9 +23,9 @@
   Hint: Are any of the variables quantifiable? 
 
 - Class: cmd_question
-  Output: We're looking at two categorical variables here. Since we want to know if the treatments differ in their rates of success, we will use a chi-square test for association. First, let's tally the relapses for each treatment. Type -  (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")).  Note, the extra "( )" around the expression will print AND save tally as an object.
+  Output: We're looking at two categorical variables here. Since we want to know if the treatments differ in their rates of success, we will use a chi-square test for association. First, let's tally the relapses for each treatment. Type -  (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")).  Note, the extra "( )" around the expression will print the tally AND save it as an object.
   CorrectAnswer: (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion"))
-  AnswerTests: omnitest(correctExpr='(CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format=\"proportion\"))')
+  AnswerTests: any_of_exprs('(CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format=\"proportion\"))','(CocaineTab = tally(~Relapse|Drug, data=CocaineTreatment, format=\"proportion\"))')
   Hint: Enter - (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")), note, make sure you have the extra "(" and ")" around the expression.
  
 

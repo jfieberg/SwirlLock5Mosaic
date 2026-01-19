@@ -25,7 +25,7 @@
   Hint: Where is the peak of this distribution?
 
 - Class: text
-  Output: Yes!  The randomization distribution tells us what values for diffmean we are likely to see IF the null hypothesis is true.  If caffiene has NO EFFECT on tap rate, then we would expect that the difference in mean tap rate for the two groups would, on average, equal 0.
+  Output: Yes!  The randomization distribution tells us what values for diffmean we are likely to see IF the null hypothesis is true.  If caffeine has NO EFFECT on tap rate, then we would expect that the difference in mean tap rate for the two groups would, on average, equal 0.
 
 - Class: mult_question
   Output: If we had calculated a bootstrap distribution, where would this distribution have been centered? 
@@ -40,7 +40,7 @@
   FigureType: new
 
 - Class: cmd_question
-  Output: I've loaded in the bootstrap distribution you made for pre-lab 4, of the mean tap rate for the Caffeine group. Let's take a look at this distribution using a histogram - the dataframe is called CaffBoot and the variable we are interested in is labeled "mean" - so, gf_histogram(~mean, data=CaffBoot).
+  Output: I've loaded in the bootstrap distribution you made for pre-lab 4 of the mean tap rate for the Caffeine group. Let's take a look at this distribution using a histogram - the dataframe is called CaffBoot and the variable we are interested in is labeled "mean" - so, gf_histogram(~mean, data=CaffBoot).
   CorrectAnswer: gf_histogram(~mean, data=CaffBoot)
   AnswerTests: omnitest(correctExpr='gf_histogram(~mean, data=CaffBoot)')
   Hint: We want to plot the mean values inside the data fram CaffBoot. Try using the gf_histogram() function in a very similar fashion to the randomization distribution we plotted above. 
@@ -77,7 +77,7 @@
   Hint: Use this distribution to calculate p-values!
   
 - Class: text
-  Output: Yes, a key difference between bootstrap distributions and randomization distributions is that the latter explores a range of values for our statistic in the case *where the null hypothesis is true*.
+  Output: Yes, a key difference between a bootstrap distribution and a randomization distribution is that the latter explores a range of values for our statistic in the case *where the null hypothesis is true*.
   
 - Class: mult_question
   Output: Good work! You've completed Pre-Lab 5.3. Please select "Finished!". This will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment. Make sure to fill in your email or X500 on the Google form and click submit!

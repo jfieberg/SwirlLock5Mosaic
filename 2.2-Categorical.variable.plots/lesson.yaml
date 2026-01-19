@@ -39,7 +39,7 @@
   Hint: Not much has to change from our last function - gf_bar(~Smoke, data=StudentSurvey). We still want a bargraph, and we still want to use the StudentSurvey data set, except this time, we want to look at the variable Year instead of Smoke. 
 
 - Class: text
-  Output: Let's consider now bargraphs with two categorical variables. Consider the variable Award, which represents which of three awards the student would like to win in their lifetime - an Academy Award, a Nobel Prize, or an Olympic Medal. 
+  Output: Let's now consider bar graphs with two categorical variables. Consider the variable Award, which represents which of three awards the student would like to win in their lifetime - an Academy Award, a Nobel Prize, or an Olympic Medal. 
 
 - Class: cmd_question
   Output: Let's compare answers between Males and Females (ideally, we would consider a more inclusive set of gender identities but this dataset is limited to Males and Females!). We can create a plot with a separate panel for Males and Females using a "|" - gf_bar(~Award|Sex, data=StudentSurvey). Try it!
@@ -48,16 +48,16 @@
   Hint: Enter gf_bar(~Award|Sex, data=StudentSurvey). This tells R that we want to break down the data by Sex. 
 
 - Class: text
-  Output: Great job. We can also use the fill argument to gf_bar() to create stacked and side-by-side bargraphs.
+  Output: Great job. We can also use the fill argument to gf_bar() to create stacked and side-by-side bar graphs.
 
 - Class: cmd_question
-  Output: Try the following gf_bar(~Award, fill=~Sex, data=StudentSurvey). This will create a stacked histogram.
+  Output: Try the following gf_bar(~Award, fill=~Sex, data=StudentSurvey). This will create a stacked bar graph.
   CorrectAnswer: gf_bar(~Award, fill=~Sex, data=StudentSurvey)
   AnswerTests: any_of_exprs('gf_bar(~Award, fill=~Sex, data=StudentSurvey)')
   Hint: Enter gf_bar(~Award, fill=~Sex, data=StudentSurvey). This tells R that we want to break down the data by Sex. 
  
 - Class: cmd_question
-  Output: To create side-by-side histograms, we can add an extra argument, position=position_dodge(). This tells R to place the counts next to each other rather than on top of each other. Try it - enter  gf_bar(~Award, fill=~Sex, data=StudentSurvey, position=position_dodge()). 
+  Output: To create side-by-side bar graphs, we can add an extra argument, position=position_dodge(). This tells R to place the counts next to each other rather than on top of each other. Try it - enter  gf_bar(~Award, fill=~Sex, data=StudentSurvey, position=position_dodge()). 
   CorrectAnswer: gf_bar(~Award, fill=~Sex, data=StudentSurvey, position=position_dodge())
   AnswerTests: any_of_exprs('gf_bar(~Award, fill=~Sex, data=StudentSurvey, position=position_dodge())')
   Hint: Enter gf_bar(~Award, fill=~Sex, data=StudentSurvey, position=position_dodge()). This tells R that we want to break down the data by Sex. 
